@@ -1,0 +1,10157 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+/* =========================================================
+   SMART RETAIL — CLEAN 2026 DARK DESIGN SYSTEM
+   Single stylesheet for the existing JSX.
+   Functionality is intentionally untouched.
+   ========================================================= */
+
+:root{
+  --bg:#070b12;
+  --bg-soft:#0a1019;
+  --surface:#0d1521;
+  --surface-2:#111b2a;
+  --surface-3:#162235;
+  --surface-hover:#142033;
+
+  --line:#1d2b3d;
+  --line-soft:#182638;
+  --line-strong:#2b3d55;
+
+  --text:#f5f7fb;
+  --text-soft:#d3dce8;
+  --muted:#7b8ba1;
+  --muted-2:#607188;
+
+  --purple:#7c4dff;
+  --purple-2:#9a6cff;
+  --purple-soft:rgba(124,77,255,.13);
+
+  --blue:#299cff;
+  --blue-soft:rgba(41,156,255,.12);
+
+  --green:#19df98;
+  --green-soft:rgba(25,223,152,.11);
+
+  --amber:#f6ad32;
+  --amber-soft:rgba(246,173,50,.11);
+
+  --red:#ff4777;
+  --red-soft:rgba(255,71,119,.11);
+
+  --shadow-sm:0 6px 18px rgba(0,0,0,.12);
+  --shadow-md:0 12px 32px rgba(0,0,0,.18);
+  --shadow-lg:0 24px 70px rgba(0,0,0,.42);
+
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+}
+
+/* =========================================================
+   RESET / GLOBAL
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  min-height:100%;
+  background:var(--bg);
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 78% -8%,rgba(124,77,255,.14),transparent 29%),
+    radial-gradient(circle at 8% 92%,rgba(41,156,255,.07),transparent 28%),
+    linear-gradient(135deg,#070b12 0%,#080e17 55%,#070b12 100%);
+  color:var(--text);
+  font-family:"DM Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:2px solid rgba(124,77,255,.7);
+  outline-offset:2px;
+}
+
+.app{
+  min-height:100vh;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  width:252px;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  z-index:20;
+
+  padding:20px 13px 15px;
+
+  background:
+    linear-gradient(180deg,#09121f 0%,#0a1423 54%,#0b1727 100%);
+
+  border-right:1px solid #182638;
+  box-shadow:10px 0 36px rgba(0,0,0,.20);
+}
+
+/* Logo */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:4px 7px 22px;
+}
+
+.logo-mark{
+  width:39px;
+  height:39px;
+  flex:none;
+  display:grid;
+  place-items:center;
+
+  border-radius:11px;
+
+  background:linear-gradient(135deg,#7046ff,#a05dff);
+  color:#fff;
+
+  font:800 12px Manrope,sans-serif;
+
+  box-shadow:
+    0 8px 24px rgba(112,70,255,.30);
+}
+
+.logo b,
+.logo span{
+  display:block;
+}
+
+.logo b{
+  color:#f4f7fb;
+  font:800 13px Manrope,sans-serif;
+  letter-spacing:-.15px;
+}
+
+.logo span{
+  margin-top:3px;
+  color:#74859c;
+  font-size:8px;
+}
+
+/* Store selector */
+
+.store-switch{
+  min-height:43px;
+  display:flex;
+  align-items:center;
+
+  padding:10px 11px;
+  margin-bottom:17px;
+
+  border:1px solid #1c2b3e;
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#0e1928,#0b1522);
+
+  color:#dce5ef;
+
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+.store-switch>div{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.store-switch small{
+  margin-left:auto;
+  color:#35e79d;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.55px;
+}
+
+.live-dot{
+  width:7px;
+  height:7px;
+  flex:none;
+  border-radius:50%;
+  background:var(--green);
+
+  box-shadow:
+    0 0 0 4px rgba(25,223,152,.09),
+    0 0 12px rgba(25,223,152,.45);
+}
+
+/* Navigation */
+
+.sidebar nav{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.nav{
+  position:relative;
+  width:100%;
+  min-height:40px;
+
+  display:flex;
+  align-items:center;
+  gap:11px;
+
+  padding:10px 11px;
+  margin:1px 0;
+
+  border:0;
+  border-radius:9px;
+
+  background:transparent;
+  color:#7e8ea4;
+
+  font-size:10px;
+  font-weight:600;
+  text-align:left;
+
+  transition:
+    background .16s ease,
+    color .16s ease,
+    transform .16s ease;
+}
+
+.nav svg{
+  width:16px;
+  height:16px;
+  flex:none;
+  opacity:.82;
+}
+
+.nav:hover{
+  background:#101c2b;
+  color:#e6edf5;
+  transform:translateX(2px);
+}
+
+.nav:hover svg{
+  opacity:1;
+}
+
+.nav.active{
+  background:linear-gradient(90deg,#7046ff,#8351ff);
+  color:#fff;
+  font-weight:700;
+
+  box-shadow:
+    0 8px 22px rgba(112,70,255,.23);
+}
+
+.nav.active::before{
+  content:"";
+  position:absolute;
+  left:-13px;
+  top:9px;
+  width:3px;
+  height:22px;
+  border-radius:0 4px 4px 0;
+  background:#aa8cff;
+}
+
+.nav.active svg{
+  opacity:1;
+}
+
+.nav em{
+  min-width:18px;
+  height:18px;
+
+  display:grid;
+  place-items:center;
+
+  margin-left:auto;
+
+  border-radius:50%;
+
+  background:var(--red);
+  color:#fff;
+
+  font-size:8px;
+  font-style:normal;
+  font-weight:800;
+
+  box-shadow:0 0 12px rgba(255,71,119,.30);
+}
+
+/* Sidebar footer */
+
+.sidebar-foot{
+  margin-top:auto;
+  padding-top:14px;
+}
+
+.edge-status{
+  padding:11px 12px;
+  margin-bottom:12px;
+
+  border:1px solid #1d2c3e;
+  border-radius:10px;
+
+  background:linear-gradient(145deg,#0e1928,#0b1522);
+  box-shadow:var(--shadow-sm);
+}
+
+.edge-status div{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#aebbd0;
+}
+
+.edge-status div svg{
+  width:14px;
+  height:14px;
+}
+
+.edge-status b{
+  font-size:9px;
+}
+
+.edge-status strong{
+  display:block;
+  margin-top:6px;
+  color:#f0f4f8;
+  font-size:10px;
+}
+
+.edge-status>span{
+  display:block;
+  margin-top:3px;
+  color:#66778e;
+  font-size:7px;
+}
+
+.profile{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:6px 5px;
+  color:#fff;
+}
+
+.profile>div{
+  width:31px;
+  height:31px;
+  flex:none;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:linear-gradient(135deg,#7046ff,#9a5cff);
+  color:#fff;
+
+  font-size:10px;
+  font-weight:800;
+
+  box-shadow:0 5px 16px rgba(112,70,255,.24);
+}
+
+.profile span{
+  color:#718198;
+  font-size:8px;
+}
+
+.profile b{
+  display:block;
+  margin-bottom:2px;
+  color:#f4f7fb;
+  font-size:10px;
+}
+
+.profile button{
+  margin-left:auto;
+  padding:4px;
+
+  border:0;
+  background:transparent;
+  color:#718198;
+
+  font-size:12px;
+}
+
+/* =========================================================
+   MAIN / HEADER
+   ========================================================= */
+
+main{
+  min-height:100vh;
+  margin-left:252px;
+  background:transparent;
+}
+
+.app header{
+  position:sticky;
+  top:0;
+  z-index:10;
+
+  height:66px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 30px;
+
+  background:rgba(7,12,20,.86);
+  border-bottom:1px solid #172538;
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  color:#64758b;
+  font-size:9px;
+}
+
+.breadcrumb svg{
+  opacity:.45;
+}
+
+.breadcrumb b{
+  color:#cbd5e2;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-left:auto;
+}
+
+.search{
+  width:255px;
+  height:37px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 10px;
+
+  border:1px solid #1d2c40;
+  border-radius:9px;
+
+  background:#0e1724;
+  color:#66788f;
+
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.02);
+
+  transition:border-color .16s ease,box-shadow .16s ease;
+}
+
+.search:focus-within{
+  border-color:#6545dc;
+  box-shadow:0 0 0 3px rgba(124,77,255,.08);
+}
+
+.search svg{
+  width:15px;
+  height:15px;
+  flex:none;
+}
+
+.search input{
+  width:100%;
+  margin-left:7px;
+
+  border:0;
+  outline:0;
+
+  background:transparent;
+  color:#e4ebf3;
+
+  font-size:9px;
+}
+
+.search input::placeholder{
+  color:#5f7086;
+}
+
+.bell{
+  position:relative;
+
+  width:32px;
+  height:32px;
+
+  display:grid;
+  place-items:center;
+
+  padding:0;
+
+  border:0;
+  border-radius:8px;
+
+  background:transparent;
+  color:#78899f;
+
+  transition:background .16s ease,color .16s ease;
+}
+
+.bell:hover{
+  background:#111d2c;
+  color:#e9eff7;
+}
+
+.bell i{
+  position:absolute;
+  right:-1px;
+  top:-1px;
+
+  width:13px;
+  height:13px;
+
+  display:grid;
+  place-items:center;
+
+  border:2px solid #080e17;
+  border-radius:50%;
+
+  background:var(--red);
+  color:#fff;
+
+  font-size:6px;
+  font-style:normal;
+}
+
+.avatar{
+  width:32px;
+  height:32px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:9px;
+
+  background:linear-gradient(135deg,#7046ff,#985cff);
+  color:#fff;
+
+  font-size:10px;
+  font-weight:800;
+
+  box-shadow:0 5px 17px rgba(112,70,255,.25);
+}
+
+/* =========================================================
+   CONTENT / PAGE HEADER
+   ========================================================= */
+
+.content{
+  width:100%;
+  max-width:1480px;
+  margin:0 auto;
+  padding:30px 32px 42px;
+}
+
+.page-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+
+  margin-bottom:23px;
+}
+
+.eyebrow{
+  margin-bottom:7px;
+
+  color:#8c70ff;
+
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.45px;
+}
+
+.page-head h1{
+  margin:0;
+
+  color:#f5f7fb;
+
+  font:800 29px/1.12 Manrope,sans-serif;
+  letter-spacing:-.8px;
+}
+
+.page-head p{
+  margin:7px 0 0;
+
+  color:#718198;
+
+  font-size:10px;
+  line-height:1.5;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary,
+.ghost,
+.small-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+
+  border-radius:9px;
+
+  font-size:10px;
+  font-weight:700;
+
+  transition:
+    transform .16s ease,
+    background .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease;
+}
+
+.primary{
+  padding:10px 14px;
+
+  border:1px solid #7046ff;
+
+  background:linear-gradient(135deg,#7046ff,#8b55ff);
+  color:#fff;
+
+  box-shadow:0 8px 22px rgba(112,70,255,.22);
+}
+
+.primary:hover{
+  transform:translateY(-1px);
+
+  background:linear-gradient(135deg,#8058ff,#9b65ff);
+
+  box-shadow:0 11px 27px rgba(112,70,255,.30);
+}
+
+.ghost,
+.small-action{
+  padding:9px 12px;
+
+  border:1px solid #26364a;
+
+  background:#101a28;
+  color:#c2cede;
+}
+
+.ghost:hover,
+.small-action:hover{
+  transform:translateY(-1px);
+
+  border-color:#3b4d66;
+  background:#162235;
+  color:#fff;
+}
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-bottom:17px;
+}
+
+.stat{
+  position:relative;
+  min-height:102px;
+  overflow:hidden;
+
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+
+  padding:17px;
+
+  border:1px solid #1d2c40;
+  border-radius:14px;
+
+  background:linear-gradient(145deg,#0e1725,#0c1521);
+
+  box-shadow:var(--shadow-sm);
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.stat::after{
+  content:"";
+  position:absolute;
+  right:-26px;
+  top:-28px;
+
+  width:78px;
+  height:78px;
+
+  border-radius:50%;
+
+  background:var(--purple);
+  opacity:.08;
+  pointer-events:none;
+}
+
+.stat:nth-child(2)::after{background:var(--blue)}
+.stat:nth-child(3)::after{background:var(--amber)}
+.stat:nth-child(4)::after{background:var(--red)}
+
+.stat:hover{
+  transform:translateY(-2px);
+  border-color:#30425a;
+  box-shadow:var(--shadow-md);
+}
+
+.stat-icon{
+  position:relative;
+  z-index:1;
+
+  width:39px;
+  height:39px;
+  flex:none;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid #26364b;
+  border-radius:10px;
+
+  background:#162235;
+  color:#9eb0c7;
+}
+
+.stat-icon svg{
+  width:18px;
+  height:18px;
+}
+
+.stats .stat:nth-child(1) .stat-icon{
+  background:var(--purple-soft);
+  border-color:rgba(124,77,255,.23);
+  color:#a58cff;
+}
+
+.stats .stat:nth-child(2) .stat-icon{
+  background:var(--blue-soft);
+  border-color:rgba(41,156,255,.23);
+  color:#55b5ff;
+}
+
+.stats .stat:nth-child(3) .stat-icon{
+  background:var(--amber-soft);
+  border-color:rgba(246,173,50,.23);
+  color:#ffc05a;
+}
+
+.stats .stat:nth-child(4) .stat-icon{
+  background:var(--red-soft);
+  border-color:rgba(255,71,119,.23);
+  color:#ff7096;
+}
+
+.stat>div:last-child{
+  position:relative;
+  z-index:1;
+  min-width:0;
+}
+
+.stat span{
+  display:block;
+  color:#718198;
+  font-size:9px;
+  font-weight:600;
+}
+
+.stat strong{
+  display:block;
+  margin:4px 0;
+
+  color:#f5f7fb;
+
+  font:800 23px/1 Manrope,sans-serif;
+  letter-spacing:-.4px;
+}
+
+.stat small{
+  display:block;
+  color:#66778e;
+  font-size:8px;
+}
+
+.stat small b{
+  color:var(--green);
+  font-weight:700;
+}
+
+/* =========================================================
+   PANELS / DASHBOARD GRID
+   ========================================================= */
+
+.dashboard-grid,
+.live-grid,
+.ai-grid,
+.two{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(300px,.85fr);
+  gap:17px;
+}
+
+.live-grid{
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+}
+
+.ai-grid{
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+}
+
+.panel{
+  margin-bottom:17px;
+  padding:18px;
+
+  border:1px solid #1d2c40;
+  border-radius:14px;
+
+  background:linear-gradient(145deg,#0d1623,#0f1927);
+
+  color:#dce5ef;
+
+  box-shadow:var(--shadow-sm);
+}
+
+.panel.flush{
+  padding:0;
+  overflow:hidden;
+}
+
+.panel-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+
+  margin-bottom:14px;
+}
+
+.panel-head h3{
+  margin:0;
+
+  color:#edf3f9;
+
+  font:700 14px/1.2 Manrope,sans-serif;
+}
+
+.panel-head p{
+  margin:4px 0 0;
+
+  color:#718198;
+  font-size:9px;
+}
+
+.link{
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+
+  padding:3px 0;
+
+  border:0;
+  background:transparent;
+
+  color:#8b78ff;
+
+  font-size:9px;
+  font-weight:700;
+}
+
+.link:hover{
+  color:#b1a4ff;
+}
+
+/* =========================================================
+   SALES CHART
+   ========================================================= */
+
+.chart{
+  height:220px;
+  position:relative;
+  padding:10px 7px 0;
+}
+
+.chart-value{
+  color:#f5f7fb;
+  font:800 23px/1 Manrope,sans-serif;
+}
+
+.chart-value span{
+  color:#718198;
+  font:400 9px "DM Sans",sans-serif;
+}
+
+.bars{
+  height:155px;
+
+  display:flex;
+  align-items:flex-end;
+
+  gap:10px;
+
+  margin-top:12px;
+  padding:0 10px;
+
+  border-bottom:1px solid #263548;
+}
+
+.bars i{
+  flex:1;
+  max-width:38px;
+
+  display:block;
+
+  border-radius:5px 5px 0 0;
+
+  background:linear-gradient(180deg,#9b6cff,#7046ff);
+
+  box-shadow:0 0 13px rgba(124,77,255,.14);
+
+  opacity:.94;
+
+  transition:
+    filter .16s ease,
+    transform .16s ease;
+}
+
+.bars i:nth-child(2n){
+  background:linear-gradient(180deg,#4eb5ff,#218cff);
+  box-shadow:0 0 13px rgba(33,140,255,.12);
+}
+
+.bars i:nth-child(3n){
+  background:linear-gradient(180deg,#a78bfa,#8b5cff);
+}
+
+.bars i:hover{
+  filter:brightness(1.12);
+  transform:translateY(-2px);
+}
+
+.xlabels{
+  display:flex;
+  justify-content:space-between;
+
+  padding:7px 10px 0;
+
+  color:#66778e;
+  font-size:8px;
+}
+
+/* =========================================================
+   NEEDS ATTENTION
+   ========================================================= */
+
+.attention{
+  min-height:174px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.attention>div{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  padding:11px 0;
+
+  border-bottom:1px solid #1b293a;
+}
+
+.attention>div:last-child{
+  border-bottom:0;
+}
+
+.product-mini{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+}
+
+.product-mini>div{
+  width:34px;
+  height:34px;
+  flex:none;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid #293a50;
+  border-radius:9px;
+
+  background:linear-gradient(135deg,#18253a,#162235);
+  color:#a58cff;
+
+  font-size:11px;
+  font-weight:800;
+}
+
+.product-mini span{
+  display:block;
+  min-width:0;
+
+  color:#718198;
+  font-size:9px;
+}
+
+.product-mini b{
+  display:block;
+  margin-bottom:2px;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+
+  color:#edf3f8;
+  font-size:10px;
+}
+
+/* Empty state without changing JSX */
+
+.attention:empty::before{
+  content:"No inventory issues right now.";
+  color:#dce5ef;
+  font-size:10px;
+}
+
+/* =========================================================
+   STATUS TAGS
+   ========================================================= */
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:5px 8px;
+
+  border:1px solid transparent;
+  border-radius:7px;
+
+  white-space:nowrap;
+
+  background:#172235;
+  color:#9caabd;
+
+  font-size:8px;
+  font-weight:800;
+}
+
+.tag.green{
+  background:var(--green-soft);
+  border-color:rgba(25,223,152,.18);
+  color:#28e9a0;
+}
+
+.tag.amber{
+  background:var(--amber-soft);
+  border-color:rgba(246,173,50,.18);
+  color:#ffc05a;
+}
+
+.tag.red{
+  background:var(--red-soft);
+  border-color:rgba(255,71,119,.18);
+  color:#ff6c93;
+}
+
+/* =========================================================
+   LIVE TROLLEY TABLE
+   ========================================================= */
+
+.cart-list{
+  width:100%;
+}
+
+.cart-row{
+  min-height:65px;
+
+  display:grid;
+  grid-template-columns:
+    9px
+    minmax(160px,2fr)
+    minmax(70px,.75fr)
+    minmax(70px,.75fr)
+    minmax(125px,1.35fr);
+
+  align-items:center;
+
+  gap:15px;
+
+  padding:11px 15px;
+
+  border-bottom:1px solid #1b293a;
+
+  font-size:10px;
+
+  transition:background .16s ease;
+}
+
+.cart-row:last-child{
+  border-bottom:0;
+}
+
+.cart-row:hover{
+  background:rgba(124,77,255,.045);
+}
+
+.cart-row>div{
+  min-width:0;
+}
+
+.cart-row>div b,
+.cart-row>div small{
+  display:block;
+}
+
+.cart-row>div b{
+  color:#eef3f8;
+  font-size:11px;
+  font-weight:700;
+}
+
+.cart-row>div small{
+  margin-top:3px;
+  color:#718198;
+  font-size:8px;
+}
+
+.cart-row>span:nth-child(3){
+  color:#718198;
+}
+
+.cart-row>strong{
+  color:#f5f7fb;
+  font-size:11px;
+}
+
+.state{
+  width:8px;
+  height:8px;
+  display:block;
+
+  border-radius:50%;
+  background:#718198;
+}
+
+.state.shopping{
+  background:var(--green);
+
+  box-shadow:
+    0 0 0 3px rgba(25,223,152,.08),
+    0 0 9px rgba(25,223,152,.42);
+}
+
+.state.available{
+  background:#718198;
+}
+
+.state.alert{
+  background:var(--red);
+
+  box-shadow:
+    0 0 0 3px rgba(255,71,119,.08),
+    0 0 9px rgba(255,71,119,.42);
+}
+
+.cart-row .tag{
+  justify-self:start;
+}
+
+.live-pill{
+  display:inline-flex;
+  align-items:center;
+
+  padding:6px 9px;
+
+  border:1px solid rgba(25,223,152,.16);
+  border-radius:99px;
+
+  background:var(--green-soft);
+  color:#29e7a0;
+
+  font-size:8px;
+  font-weight:800;
+}
+
+.live-pill i{
+  width:6px;
+  height:6px;
+
+  margin-right:5px;
+
+  border-radius:50%;
+  background:var(--green);
+
+  box-shadow:0 0 8px rgba(25,223,152,.45);
+}
+
+/* =========================================================
+   LIVE STORE CART CARDS
+   ========================================================= */
+
+.cart-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.cart-card{
+  width:100%;
+
+  padding:14px;
+
+  border:1px solid #1d2c40;
+  border-radius:11px;
+
+  background:linear-gradient(145deg,#101a29,#0d1623);
+
+  color:#edf3f8;
+
+  text-align:left;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+
+  transition:
+    transform .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease,
+    background .16s ease;
+}
+
+.cart-card:hover{
+  transform:translateY(-2px);
+  border-color:#344968;
+  background:linear-gradient(145deg,#142033,#101a29);
+  box-shadow:var(--shadow-md);
+}
+
+.cart-card.selected{
+  border-color:#7046ff;
+
+  background:
+    linear-gradient(145deg,rgba(124,77,255,.14),#101a29);
+
+  box-shadow:
+    0 0 0 1px rgba(124,77,255,.18),
+    0 12px 28px rgba(112,70,255,.10);
+}
+
+.cart-head{
+  display:flex;
+  align-items:center;
+  gap:7px;
+
+  font-size:10px;
+}
+
+.cart-head b{
+  color:#edf3f8;
+}
+
+.cart-head small{
+  margin-left:auto;
+  color:#718198;
+  font-size:8px;
+}
+
+.cart-card>strong{
+  display:block;
+  margin-top:17px;
+
+  color:#fff;
+
+  font:800 27px/1 Manrope,sans-serif;
+}
+
+.items-label{
+  color:#718198;
+  font-size:8px;
+}
+
+.cart-card footer{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+
+  margin-top:13px;
+  padding-top:10px;
+
+  border-top:1px solid #1d2a3b;
+
+  color:#f1f5f9;
+  font-size:10px;
+}
+
+.cart-card footer span{
+  color:#28e59d;
+  font-size:8px;
+}
+
+.cart-card em{
+  display:block;
+
+  margin-top:9px;
+  padding:6px;
+
+  border:1px solid rgba(255,71,119,.16);
+  border-radius:6px;
+
+  background:var(--red-soft);
+  color:#ff6c93;
+
+  font-size:8px;
+  font-style:normal;
+}
+
+/* =========================================================
+   TROLLEY DETAILS
+   ========================================================= */
+
+.detail-top{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+
+  padding:12px;
+  margin-bottom:15px;
+
+  border:1px solid #1c2b3e;
+  border-radius:9px;
+
+  background:#0f1927;
+}
+
+.detail-top span b,
+.detail-top span small{
+  display:block;
+}
+
+.detail-top b{
+  color:#718198;
+  font-size:8px;
+}
+
+.detail-top small{
+  margin-top:4px;
+  color:#edf3f8;
+  font-size:11px;
+  font-weight:700;
+}
+
+.detail-top small i{
+  display:inline-block;
+
+  width:5px;
+  height:5px;
+
+  margin-right:4px;
+
+  border-radius:50%;
+  background:var(--green);
+}
+
+.panel h4{
+  margin:0 0 7px;
+  color:#dfe7ef;
+  font-size:9px;
+}
+
+.line-items div{
+  display:flex;
+  justify-content:space-between;
+
+  padding:8px 0;
+
+  border-bottom:1px solid #1b293a;
+
+  color:#8b9bb0;
+  font-size:9px;
+}
+
+.line-items div:last-child{
+  border-bottom:0;
+}
+
+.line-items b{
+  color:#edf3f8;
+}
+
+.verification{
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  padding:10px;
+  margin-top:14px;
+
+  border-radius:9px;
+}
+
+.verification svg{
+  width:17px;
+  height:17px;
+  flex:none;
+}
+
+.verification span{
+  flex:1;
+  color:inherit;
+  font-size:8px;
+  line-height:1.45;
+}
+
+.verification b{
+  display:block;
+  margin-bottom:2px;
+  font-size:9px;
+}
+
+.verification.ok{
+  border:1px solid rgba(25,223,152,.15);
+  background:var(--green-soft);
+  color:#28e69d;
+}
+
+.verification.alert{
+  border:1px solid rgba(255,71,119,.17);
+  background:var(--red-soft);
+  color:#ff6c93;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.table-wrap{
+  width:100%;
+  overflow:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+
+  color:#dce5ef;
+  font-size:10px;
+}
+
+th{
+  padding:12px 13px;
+
+  background:#101a29;
+
+  border-bottom:1px solid #26364b;
+
+  color:#718198;
+
+  font-size:8px;
+  font-weight:800;
+  text-align:left;
+  text-transform:uppercase;
+  letter-spacing:.55px;
+  white-space:nowrap;
+}
+
+td{
+  padding:14px 13px;
+
+  border-bottom:1px solid #1b293a;
+
+  color:#cbd6e2;
+
+  white-space:nowrap;
+}
+
+tbody tr{
+  transition:background .15s ease;
+}
+
+tbody tr:hover{
+  background:rgba(124,77,255,.045);
+}
+
+tbody tr:last-child td{
+  border-bottom:0;
+}
+
+td b{
+  display:block;
+  color:#edf3f8;
+  font-weight:700;
+}
+
+td strong{
+  color:#f5f7fb;
+}
+
+td small{
+  display:block;
+  margin-top:3px;
+  color:#718198;
+  font-size:8px;
+}
+
+code{
+  display:inline-block;
+
+  padding:5px 7px;
+
+  border:1px solid #25354a;
+  border-radius:6px;
+
+  background:#172235;
+  color:#a28cff;
+
+  font-size:8px;
+}
+
+.text-edit,
+.text-danger{
+  padding:4px 6px;
+
+  border:0;
+  background:transparent;
+
+  font-size:8px;
+  font-weight:700;
+}
+
+.text-edit{
+  color:#9b85ff;
+}
+
+.text-edit:hover{
+  color:#b5a6ff;
+}
+
+.text-danger{
+  color:#ff668d;
+}
+
+.text-danger:hover{
+  color:#ff89a7;
+}
+
+/* =========================================================
+   ORDER SUMMARY / AI / GUARDIAN
+   ========================================================= */
+
+.order-summary{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:13px;
+
+  margin-bottom:17px;
+}
+
+.order-summary>div{
+  padding:14px;
+
+  border:1px solid #1d2c40;
+  border-radius:11px;
+
+  background:linear-gradient(145deg,#0f1927,#0c1521);
+
+  box-shadow:var(--shadow-sm);
+}
+
+.order-summary>div:nth-child(1){
+  background:linear-gradient(145deg,rgba(124,77,255,.09),#0d1724);
+}
+
+.order-summary>div:nth-child(2){
+  background:linear-gradient(145deg,rgba(41,156,255,.08),#0d1724);
+}
+
+.order-summary>div:nth-child(3){
+  background:linear-gradient(145deg,rgba(25,223,152,.07),#0d1724);
+}
+
+.order-summary span,
+.order-summary b{
+  display:block;
+}
+
+.order-summary span{
+  color:#718198;
+  font-size:8px;
+}
+
+.order-summary b{
+  margin-top:4px;
+  color:#f5f7fb;
+  font:800 19px/1.15 Manrope,sans-serif;
+}
+
+.guardian-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 0;
+
+  border-bottom:1px solid #1b293a;
+}
+
+.guardian-row:last-child{
+  border-bottom:0;
+}
+
+.guardian-row>div:nth-child(2){
+  flex:1;
+  min-width:0;
+}
+
+.warning-icon{
+  width:32px;
+  height:32px;
+  flex:none;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid rgba(255,71,119,.16);
+  border-radius:9px;
+
+  background:var(--red-soft);
+  color:#ff6c93;
+}
+
+.guardian-row b,
+.guardian-row span,
+.guardian-row small{
+  display:block;
+}
+
+.guardian-row b{
+  color:#edf3f8;
+  font-size:10px;
+}
+
+.guardian-row span{
+  margin-top:2px;
+  color:#7f90a5;
+  font-size:8px;
+}
+
+.guardian-row small{
+  margin-top:3px;
+  color:#607188;
+  font-size:7px;
+}
+
+.ai-hero{
+  position:relative;
+  min-height:260px;
+  overflow:hidden;
+
+  padding:27px;
+
+  border:1px solid rgba(155,108,255,.18);
+  border-radius:14px;
+
+  background:
+    radial-gradient(circle at 88% 15%,rgba(173,145,255,.25),transparent 28%),
+    linear-gradient(135deg,#17112f 0%,#342070 55%,#5930b4 100%);
+
+  color:#fff;
+
+  box-shadow:0 16px 40px rgba(48,27,115,.22);
+}
+
+.ai-hero::after{
+  content:"";
+  position:absolute;
+
+  width:170px;
+  height:170px;
+
+  right:-75px;
+  bottom:-85px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.06);
+}
+
+.ai-hero>span{
+  color:#c8baff;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1.2px;
+}
+
+.ai-hero h2{
+  position:relative;
+  z-index:1;
+
+  max-width:410px;
+
+  margin:15px 0 10px;
+
+  color:#fff;
+
+  font:800 26px/1.13 Manrope,sans-serif;
+  letter-spacing:-.5px;
+}
+
+.ai-hero p{
+  position:relative;
+  z-index:1;
+
+  max-width:430px;
+
+  color:#d1cce0;
+
+  font-size:9px;
+  line-height:1.7;
+}
+
+.ai-metric{
+  position:relative;
+  z-index:1;
+
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+
+  margin-top:23px;
+}
+
+.ai-metric b{
+  color:#fff;
+  font:800 29px/1 Manrope,sans-serif;
+}
+
+.ai-metric span{
+  color:#ada6c1;
+  font-size:8px;
+}
+
+.recommend{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+
+  padding:13px 0;
+
+  border-bottom:1px solid #1b293a;
+}
+
+.recommend:last-child{
+  border-bottom:0;
+}
+
+.recommend b,
+.recommend span{
+  display:block;
+}
+
+.recommend b{
+  color:#edf3f8;
+  font-size:10px;
+}
+
+.recommend span{
+  margin-top:3px;
+  color:#718198;
+  font-size:8px;
+}
+
+.recommend strong{
+  display:flex;
+  align-items:center;
+  gap:3px;
+
+  color:#9c86ff;
+
+  font-size:8px;
+  white-space:nowrap;
+}
+
+.flow{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+
+  color:#73849a;
+  font-size:8px;
+}
+
+.flow span{
+  padding:8px 9px;
+
+  border:1px solid #25364b;
+  border-radius:7px;
+
+  background:#141f31;
+  color:#a493ff;
+}
+
+/* =========================================================
+   SETTINGS / FORMS
+   ========================================================= */
+
+.setting{
+  display:block;
+  margin-bottom:15px;
+
+  color:#8999ad;
+  font-size:9px;
+}
+
+.setting input,
+.setting select{
+  display:block;
+  width:100%;
+
+  margin-top:6px;
+  padding:10px;
+
+  border:1px solid #26364a;
+  border-radius:8px;
+
+  outline:0;
+
+  background:#0e1724;
+  color:#e7edf5;
+
+  font-size:10px;
+}
+
+.setting input:focus,
+.setting select:focus,
+.form-grid input:focus,
+.form-grid select:focus{
+  border-color:#7957ef;
+  box-shadow:0 0 0 3px rgba(124,77,255,.10);
+}
+
+.setting-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+
+  padding:13px 0;
+
+  border-bottom:1px solid #1b293a;
+}
+
+.setting-row:last-child{
+  border-bottom:0;
+}
+
+.setting-row b{
+  display:block;
+  color:#e7edf5;
+  font-size:10px;
+}
+
+.setting-row div span{
+  display:block;
+  margin-top:3px;
+  color:#718198;
+  font-size:8px;
+}
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:50;
+
+  display:grid;
+  place-items:center;
+
+  padding:20px;
+
+  background:rgba(2,6,12,.72);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.modal{
+  width:min(720px,100%);
+  max-height:90vh;
+  overflow:auto;
+
+  padding:23px;
+
+  border:1px solid #26364b;
+  border-radius:16px;
+
+  background:linear-gradient(145deg,#101a29,#0c1522);
+
+  box-shadow:var(--shadow-lg);
+
+  color:#e9eff7;
+}
+
+.modal-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:15px;
+
+  margin-bottom:18px;
+}
+
+.modal-head h2{
+  margin:0;
+
+  color:#f5f7fb;
+
+  font:800 19px/1.15 Manrope,sans-serif;
+}
+
+.modal-head p{
+  margin:5px 0 0;
+
+  color:#718198;
+  font-size:9px;
+}
+
+.modal-head button{
+  width:31px;
+  height:31px;
+  flex:none;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid #26364a;
+  border-radius:8px;
+
+  background:#162235;
+  color:#91a0b3;
+}
+
+.modal-head button:hover{
+  background:#1b2a3e;
+  color:#fff;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.form-grid label{
+  color:#8999ad;
+  font-size:9px;
+}
+
+.form-grid input,
+.form-grid select{
+  display:block;
+  width:100%;
+
+  margin-top:6px;
+  padding:10px;
+
+  border:1px solid #26364a;
+  border-radius:8px;
+
+  outline:0;
+
+  background:#0e1724;
+  color:#e8eef6;
+
+  font-size:10px;
+}
+
+.form-grid input::placeholder{
+  color:#5f7087;
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+
+  margin-top:20px;
+  padding-top:16px;
+
+  border-top:1px solid #1b293a;
+}
+
+.order-note{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+
+  padding:10px;
+  margin-top:14px;
+
+  border:1px solid #24344a;
+  border-radius:8px;
+
+  background:#121e2f;
+  color:#8191a7;
+
+  font-size:8px;
+  line-height:1.5;
+}
+
+.order-note svg{
+  flex:none;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:80;
+
+  display:flex;
+  align-items:center;
+  gap:7px;
+
+  padding:11px 14px;
+
+  border:1px solid rgba(155,108,255,.22);
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#17112f,#5833bd);
+  color:#fff;
+
+  font-size:9px;
+
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.38),
+    0 0 22px rgba(124,77,255,.10);
+}
+
+/* =========================================================
+   COMPACT STATS
+   ========================================================= */
+
+.stats.compact .stat{
+  min-height:91px;
+  padding:15px;
+}
+
+.stats.compact .stat strong{
+  font-size:21px;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+*{
+  scrollbar-width:thin;
+  scrollbar-color:#2a3b52 #090f18;
+}
+
+*::-webkit-scrollbar{
+  width:7px;
+  height:7px;
+}
+
+*::-webkit-scrollbar-track{
+  background:#090f18;
+}
+
+*::-webkit-scrollbar-thumb{
+  background:#2a3b52;
+  border-radius:10px;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  background:#3a506c;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:1200px){
+
+  .content{
+    padding-left:25px;
+    padding-right:25px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .dashboard-grid,
+  .live-grid,
+  .ai-grid,
+  .two{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:900px){
+
+  .sidebar{
+    width:220px;
+  }
+
+  main{
+    margin-left:220px;
+  }
+
+  .app header{
+    padding:0 22px;
+  }
+
+  .search{
+    width:220px;
+  }
+
+  .cart-row{
+    grid-template-columns:
+      8px
+      minmax(140px,1.7fr)
+      minmax(60px,.7fr)
+      minmax(60px,.7fr)
+      minmax(110px,1fr);
+
+    gap:10px;
+  }
+}
+
+@media(max-width:720px){
+
+  .sidebar{
+    display:none;
+  }
+
+  main{
+    margin-left:0;
+  }
+
+  .app header{
+    padding:0 15px;
+  }
+
+  .breadcrumb{
+    display:none;
+  }
+
+  .content{
+    padding:22px 15px 30px;
+  }
+
+  .page-head{
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .page-head h1{
+    font-size:25px;
+  }
+
+  .search{
+    width:180px;
+  }
+
+  .cart-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cart-row{
+    grid-template-columns:8px 1.5fr 1fr 1fr;
+    gap:9px;
+  }
+
+  .cart-row .tag{
+    grid-column:3 / 5;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .order-summary{
+    grid-template-columns:1fr;
+  }
+
+  .detail-top{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:480px){
+
+  .header-right{
+    gap:7px;
+  }
+
+  .search{
+    display:none;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .panel{
+    padding:15px;
+  }
+
+  .panel.flush{
+    padding:0;
+  }
+
+  .chart{
+    height:205px;
+  }
+
+  .bars{
+    height:140px;
+    gap:6px;
+  }
+
+  .ai-hero{
+    padding:22px;
+  }
+
+  .ai-hero h2{
+    font-size:22px;
+  }
+}
+
+
+/* =========================================================
+   FINAL UI POLISH — READABILITY + COMPACT 2026 LAYOUT
+   Keeps existing JSX/classes and functionality unchanged.
+   ========================================================= */
+
+/* ---------- Sidebar readability ---------- */
+
+.sidebar{
+  width:252px;
+  padding:20px 14px 16px;
+}
+
+.logo{
+  gap:12px;
+  padding:5px 8px 22px;
+}
+
+.logo-mark{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  font-size:13px;
+}
+
+.logo b{
+  font-size:14px;
+}
+
+.logo span{
+  font-size:9px;
+}
+
+.store-switch{
+  min-height:48px;
+  padding:11px 12px;
+  margin-bottom:18px;
+}
+
+.store-switch small{
+  font-size:8px;
+}
+
+.nav{
+  min-height:44px;
+  gap:12px;
+  padding:11px 12px;
+  border-radius:10px;
+  font-size:11px;
+}
+
+.nav svg{
+  width:17px;
+  height:17px;
+}
+
+.nav em{
+  min-width:20px;
+  height:20px;
+  font-size:9px;
+}
+
+/* ---------- Main/header ---------- */
+
+main{
+  margin-left:252px;
+}
+
+.app header{
+  height:70px;
+  padding:0 34px;
+}
+
+.breadcrumb{
+  font-size:10px;
+}
+
+.search{
+  width:275px;
+  height:40px;
+  border-radius:10px;
+}
+
+.search input{
+  font-size:10px;
+}
+
+.bell{
+  width:35px;
+  height:35px;
+}
+
+.avatar{
+  width:35px;
+  height:35px;
+  font-size:11px;
+}
+
+/* ---------- Main content ---------- */
+
+.content{
+  max-width:1540px;
+  padding:30px 34px 44px;
+}
+
+.page-head{
+  margin-bottom:20px;
+}
+
+.eyebrow{
+  margin-bottom:8px;
+  font-size:10px;
+  letter-spacing:1.5px;
+}
+
+.page-head h1{
+  font-size:31px;
+  letter-spacing:-.9px;
+}
+
+.page-head p{
+  margin-top:8px;
+  font-size:11px;
+}
+
+/* ---------- Buttons ---------- */
+
+.primary,
+.ghost,
+.small-action{
+  min-height:38px;
+  padding:0 13px;
+  border-radius:10px;
+  font-size:11px;
+}
+
+/* ---------- KPI cards ---------- */
+
+.stats{
+  gap:15px;
+  margin-bottom:16px;
+}
+
+.stat{
+  min-height:106px;
+  padding:17px 18px;
+  gap:13px;
+  border-radius:14px;
+}
+
+.stat-icon{
+  width:42px;
+  height:42px;
+  border-radius:11px;
+}
+
+.stat-icon svg{
+  width:19px;
+  height:19px;
+}
+
+.stat span{
+  font-size:10px;
+}
+
+.stat strong{
+  margin:5px 0;
+  font-size:26px;
+}
+
+.stat small{
+  font-size:9px;
+}
+
+/* ---------- Dashboard panels ---------- */
+
+.dashboard-grid,
+.live-grid,
+.ai-grid,
+.two{
+  gap:14px;
+}
+
+.panel{
+  margin-bottom:14px;
+  padding:18px 19px;
+  border-radius:14px;
+}
+
+.panel-head{
+  margin-bottom:12px;
+}
+
+.panel-head h3{
+  font-size:15px;
+}
+
+.panel-head p{
+  margin-top:4px;
+  font-size:10px;
+}
+
+.link{
+  font-size:10px;
+}
+
+/* ---------- Store activity: reduce empty space ---------- */
+
+.chart{
+  height:180px;
+  padding:7px 6px 0;
+}
+
+.chart-value{
+  font-size:25px;
+}
+
+.chart-value span{
+  font-size:10px;
+}
+
+.bars{
+  height:112px;
+  gap:9px;
+  margin-top:10px;
+  padding:0 9px;
+}
+
+/* ---------- Attention panel ---------- */
+
+.attention{
+  min-height:180px;
+}
+
+.attention h4,
+.attention p,
+.attention span{
+  font-size:10px;
+}
+
+/* ---------- Live trolley table ---------- */
+
+.cart-row{
+  min-height:69px;
+  gap:16px;
+  padding:12px 17px;
+  font-size:11px;
+}
+
+.cart-row>div b{
+  font-size:12px;
+}
+
+.cart-row>div small{
+  margin-top:4px;
+  font-size:9px;
+}
+
+.cart-row>strong{
+  font-size:12px;
+}
+
+.cart-row .tag{
+  font-size:9px;
+  padding:5px 8px;
+}
+
+/* ---------- General table/readability ---------- */
+
+.table-wrap{
+  font-size:11px;
+}
+
+.table-wrap th{
+  font-size:10px;
+}
+
+.table-wrap td{
+  font-size:11px;
+}
+
+.tag{
+  font-size:9px;
+  padding:5px 8px;
+}
+
+/* ---------- Live store cards ---------- */
+
+.cart-grid{
+  gap:12px;
+}
+
+.cart-card{
+  padding:16px;
+  border-radius:12px;
+}
+
+/* ---------- AI sections ---------- */
+
+.ai-hero{
+  padding:25px;
+}
+
+.ai-hero h2{
+  font-size:25px;
+}
+
+.ai-hero p{
+  font-size:11px;
+  line-height:1.6;
+}
+
+.ai-metric{
+  padding:15px;
+}
+
+.ai-metric b{
+  font-size:20px;
+}
+
+.ai-metric span{
+  font-size:10px;
+}
+
+/* ---------- Forms/settings ---------- */
+
+.setting-row,
+.form-grid,
+.order-summary{
+  font-size:11px;
+}
+
+input,
+select,
+textarea{
+  font-size:11px;
+}
+
+/* ---------- Toast/modal readability ---------- */
+
+.toast{
+  font-size:11px;
+}
+
+.modal{
+  border-radius:16px;
+}
+
+.modal-head h3{
+  font-size:16px;
+}
+
+.modal-head p{
+  font-size:10px;
+}
+
+/* ---------- Make empty dashboard areas feel intentional ---------- */
+
+.dashboard-grid > .panel{
+  min-height:0;
+}
+
+.dashboard-grid .chart{
+  min-height:0;
+}
+
+/* ---------- Desktop wide screens ---------- */
+
+@media (min-width:1500px){
+  .content{
+    padding-left:38px;
+    padding-right:38px;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:minmax(0,1.45fr) minmax(330px,.85fr);
+  }
+}
+
+/* ---------- Smaller desktop ---------- */
+
+@media (max-width:1100px){
+  .content{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .search{
+    width:220px;
+  }
+
+  .nav{
+    font-size:10px;
+  }
+}
+
+
+/* =========================================================
+   FINAL UI POLISH V3 — PREMIUM SCALE + BALANCED SPACING
+   Visual-only overrides. Existing JSX/functionality unchanged.
+   ========================================================= */
+
+/* Wider content without making the interface feel stretched */
+.content{
+  max-width:1580px;
+  padding:32px 38px 46px;
+}
+
+/* Stronger top hierarchy */
+.page-head{
+  margin-bottom:22px;
+}
+
+.page-head h1{
+  font-size:34px;
+  letter-spacing:-1px;
+}
+
+.page-head p{
+  font-size:11px;
+}
+
+/* Slightly more breathing room between KPI cards */
+.stats{
+  gap:16px;
+  margin-bottom:16px;
+}
+
+.stat{
+  min-height:112px;
+  padding:18px 19px;
+}
+
+.stat strong{
+  font-size:28px;
+}
+
+.stat span{
+  font-size:10px;
+}
+
+.stat small{
+  font-size:9px;
+}
+
+/* More useful chart proportions */
+.dashboard-grid{
+  grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);
+  gap:15px;
+}
+
+.dashboard-grid > .panel{
+  min-height:0;
+}
+
+.chart{
+  height:172px;
+  padding:8px 8px 0;
+}
+
+.chart-value{
+  font-size:27px;
+}
+
+.bars{
+  height:102px;
+  margin-top:9px;
+  gap:10px;
+  padding:0 11px;
+}
+
+.xlabels{
+  padding-top:6px;
+  font-size:8px;
+}
+
+/* Attention card: compact but visually intentional */
+.attention{
+  min-height:172px;
+  padding-left:19px;
+  padding-right:19px;
+}
+
+.attention .product-mini{
+  max-width:100%;
+}
+
+/* Live trolley panel gets stronger visual hierarchy */
+.panel{
+  padding:19px 20px;
+}
+
+.panel-head h3{
+  font-size:15px;
+}
+
+.panel-head p{
+  font-size:10px;
+}
+
+.cart-row{
+  min-height:72px;
+  grid-template-columns:
+    9px
+    minmax(180px,2fr)
+    minmax(85px,.75fr)
+    minmax(85px,.75fr)
+    minmax(140px,1.35fr);
+  gap:17px;
+  padding:13px 18px;
+}
+
+.cart-row>div b{
+  font-size:12px;
+}
+
+.cart-row>div small{
+  font-size:9px;
+}
+
+.cart-row>strong{
+  font-size:12px;
+}
+
+.cart-row .tag{
+  font-size:9px;
+  padding:6px 9px;
+}
+
+/* Make cards feel less flat */
+.stat,
+.panel,
+.cart-card{
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.015);
+}
+
+/* Better purple accent on the main action */
+.primary{
+  min-height:40px;
+  padding:0 15px;
+  border-radius:10px;
+  box-shadow:
+    0 9px 24px rgba(112,70,255,.24),
+    inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+/* Header balance */
+.app header{
+  height:70px;
+  padding:0 36px;
+}
+
+.search{
+  width:280px;
+  height:40px;
+}
+
+.avatar{
+  width:36px;
+  height:36px;
+}
+
+.bell{
+  width:36px;
+  height:36px;
+}
+
+/* Sidebar hierarchy */
+.sidebar{
+  padding:21px 14px 16px;
+}
+
+.nav{
+  min-height:45px;
+  padding:11px 12px;
+  font-size:11px;
+}
+
+.nav svg{
+  width:17px;
+  height:17px;
+}
+
+/* Cleaner responsive behavior */
+@media (max-width:1200px){
+  .content{
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  .page-head h1{
+    font-size:31px;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:minmax(0,1.35fr) minmax(290px,.85fr);
+  }
+
+  .cart-row{
+    grid-template-columns:
+      8px
+      minmax(150px,1.8fr)
+      minmax(70px,.7fr)
+      minmax(70px,.7fr)
+      minmax(120px,1.1fr);
+  }
+}
+
+@media (max-width:900px){
+  .content{
+    padding-left:22px;
+    padding-right:22px;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cart-row{
+    grid-template-columns:
+      8px
+      minmax(140px,1.7fr)
+      minmax(65px,.7fr)
+      minmax(65px,.7fr)
+      minmax(110px,1fr);
+  }
+}
+
+
+/* =========================================================
+   FINAL UI POLISH V4 — NOTICEABLE DASHBOARD REFINEMENT
+   Visual-only. Existing JSX/data/functionality untouched.
+   ========================================================= */
+
+/* Main canvas: use more of the available screen */
+.content{
+  max-width:1600px;
+  padding:30px 42px 48px;
+}
+
+/* ---------- Hero ---------- */
+
+.page-head{
+  margin-bottom:20px;
+  align-items:center;
+}
+
+.page-head h1{
+  font-size:36px;
+  line-height:1.08;
+  letter-spacing:-1.15px;
+}
+
+.page-head p{
+  margin-top:9px;
+  font-size:11px;
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:1.7px;
+}
+
+/* ---------- KPI row ---------- */
+
+.stats{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.stat{
+  min-height:108px;
+  padding:18px 19px;
+  border-radius:15px;
+}
+
+.stat strong{
+  font-size:29px;
+}
+
+.stat-icon{
+  width:42px;
+  height:42px;
+  border-radius:11px;
+}
+
+/* ---------- Activity + attention ---------- */
+
+.dashboard-grid{
+  grid-template-columns:minmax(0,1.7fr) minmax(300px,.78fr);
+  gap:14px;
+}
+
+.dashboard-grid > .panel{
+  margin-bottom:14px;
+}
+
+.dashboard-grid .panel{
+  min-height:0;
+}
+
+.dashboard-grid .panel:first-child{
+  min-height:190px;
+}
+
+.dashboard-grid .attention{
+  min-height:190px;
+}
+
+/* Chart gets more visual presence without giant empty box */
+.chart{
+  height:154px;
+}
+
+.chart-value{
+  font-size:28px;
+}
+
+.bars{
+  height:88px;
+  margin-top:8px;
+  gap:9px;
+}
+
+.bars i{
+  max-width:42px;
+  min-height:4px;
+}
+
+.xlabels{
+  font-size:8px;
+}
+
+/* ---------- Attention state ---------- */
+
+.attention{
+  justify-content:flex-start;
+}
+
+.attention > div{
+  min-height:0;
+}
+
+.attention:empty::before{
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+/* ---------- Live trolley activity ---------- */
+
+.dashboard-grid + .panel{
+  margin-top:0;
+}
+
+.cart-row{
+  min-height:70px;
+  padding:12px 19px;
+  grid-template-columns:
+    9px
+    minmax(190px,2.1fr)
+    minmax(100px,.8fr)
+    minmax(95px,.8fr)
+    minmax(150px,1.25fr);
+  gap:18px;
+}
+
+.cart-row > div b{
+  font-size:12px;
+}
+
+.cart-row > div small{
+  font-size:9px;
+}
+
+.cart-row > strong{
+  font-size:13px;
+}
+
+.cart-row .tag{
+  padding:6px 10px;
+  font-size:9px;
+}
+
+/* Trolley panel header has clearer separation */
+.panel:has(.cart-list){
+  padding-top:19px;
+}
+
+.panel:has(.cart-list) .panel-head{
+  padding-bottom:11px;
+  border-bottom:1px solid #1b293a;
+}
+
+/* ---------- Cards / surfaces ---------- */
+
+.stat,
+.panel{
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+.stat:hover,
+.panel:hover{
+  border-color:#263a52;
+}
+
+/* ---------- Header ---------- */
+
+.app header{
+  height:70px;
+  padding:0 40px;
+}
+
+.breadcrumb{
+  font-size:10px;
+}
+
+.search{
+  width:290px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar{
+  width:252px;
+  padding:21px 14px 16px;
+}
+
+.logo{
+  padding-bottom:23px;
+}
+
+.logo-mark{
+  width:42px;
+  height:42px;
+}
+
+.logo b{
+  font-size:14px;
+}
+
+.nav{
+  min-height:44px;
+  font-size:11px;
+}
+
+.nav svg{
+  width:17px;
+  height:17px;
+}
+
+/* ---------- Primary action ---------- */
+
+.primary{
+  min-height:41px;
+  padding:0 16px;
+  font-size:11px;
+}
+
+/* ---------- Generic panels / tables ---------- */
+
+.panel-head h3{
+  font-size:15px;
+}
+
+.panel-head p{
+  font-size:10px;
+}
+
+.table-wrap table{
+  font-size:11px;
+}
+
+.table-wrap th{
+  font-size:10px;
+}
+
+.table-wrap td{
+  font-size:11px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:1200px){
+  .content{
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  .page-head h1{
+    font-size:32px;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:minmax(0,1.4fr) minmax(280px,.85fr);
+  }
+
+  .cart-row{
+    grid-template-columns:
+      8px
+      minmax(155px,1.8fr)
+      minmax(75px,.7fr)
+      minmax(75px,.7fr)
+      minmax(120px,1.1fr);
+  }
+}
+
+@media (max-width:900px){
+  .content{
+    padding-left:22px;
+    padding-right:22px;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .dashboard-grid .panel:first-child,
+  .dashboard-grid .attention{
+    min-height:0;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 1
+   GLOBAL THEME / DESIGN FOUNDATION
+   Visual-only. Existing JSX and functionality untouched.
+   ========================================================= */
+
+/* ---------- Theme tokens ---------- */
+
+:root{
+  --bg:#060a12;
+  --bg-soft:#080e18;
+
+  --surface:#0b1420;
+  --surface-2:#0f1928;
+  --surface-3:#142136;
+  --surface-hover:#17263b;
+
+  --line:#1b2b40;
+  --line-soft:#16263a;
+  --line-strong:#29405b;
+
+  --text:#f7f9fc;
+  --text-soft:#d8e1ec;
+  --muted:#8495aa;
+  --muted-2:#65778e;
+
+  --purple:#8057ff;
+  --purple-2:#a277ff;
+  --purple-soft:rgba(128,87,255,.14);
+
+  --blue:#35a7ff;
+  --blue-soft:rgba(53,167,255,.13);
+
+  --green:#20dfa0;
+  --green-soft:rgba(32,223,160,.12);
+
+  --amber:#f4b33d;
+  --amber-soft:rgba(244,179,61,.12);
+
+  --red:#ff4f7b;
+  --red-soft:rgba(255,79,123,.12);
+
+  --shadow-sm:0 7px 20px rgba(0,0,0,.16);
+  --shadow-md:0 14px 34px rgba(0,0,0,.22);
+  --shadow-lg:0 26px 76px rgba(0,0,0,.44);
+
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+}
+
+/* ---------- Global canvas ---------- */
+
+html,
+body{
+  background:#060a12;
+}
+
+body{
+  background:
+    radial-gradient(
+      circle at 76% -10%,
+      rgba(128,87,255,.12),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 5% 96%,
+      rgba(53,167,255,.055),
+      transparent 27%
+    ),
+    linear-gradient(
+      135deg,
+      #060a12 0%,
+      #080e17 52%,
+      #060a12 100%
+    );
+
+  color:var(--text);
+  font-family:
+    "DM Sans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+/* ---------- Selection ---------- */
+
+::selection{
+  background:rgba(128,87,255,.30);
+  color:#fff;
+}
+
+/* ---------- Focus ---------- */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid rgba(162,119,255,.78);
+  outline-offset:2px;
+}
+
+/* ---------- Links / buttons baseline ---------- */
+
+button{
+  -webkit-tap-highlight-color:transparent;
+}
+
+a{
+  color:inherit;
+}
+
+/* ---------- Global scrollbar ---------- */
+
+*{
+  scrollbar-width:thin;
+  scrollbar-color:#2a3d58 #080e17;
+}
+
+*::-webkit-scrollbar{
+  width:7px;
+  height:7px;
+}
+
+*::-webkit-scrollbar-track{
+  background:#080e17;
+}
+
+*::-webkit-scrollbar-thumb{
+  background:#2a3d58;
+  border-radius:10px;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  background:#3a5373;
+}
+
+/* ---------- Shared surface baseline ---------- */
+
+.panel,
+.stat,
+.cart-card,
+.detail-top,
+.order-summary>div{
+  border-color:var(--line);
+  background-color:var(--surface);
+}
+
+/* ---------- Shared typography hierarchy ---------- */
+
+.panel-head h3,
+.page-head h1,
+.stat strong,
+.cart-row>strong,
+.table-wrap td strong{
+  color:var(--text);
+}
+
+.panel-head p,
+.page-head p,
+.stat span,
+.stat small,
+.cart-row>div small,
+.table-wrap th{
+  color:var(--muted);
+}
+
+/* ---------- Reduce visual noise from inactive elements ---------- */
+
+.nav,
+.breadcrumb,
+.search,
+.bell,
+.profile span{
+  color:var(--muted);
+}
+
+/* ---------- Theme phase marker ---------- */
+
+.smart-retail-theme-phase-1{
+  display:none;
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 2
+   SIDEBAR REDESIGN
+   Visual-only. Existing JSX/functionality untouched.
+   ========================================================= */
+
+/* ---------- Sidebar shell ---------- */
+
+.sidebar{
+  width:252px;
+  padding:20px 12px 15px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #09121f 0%,
+      #091421 48%,
+      #0a1625 100%
+    );
+
+  border-right:1px solid #17283c;
+
+  box-shadow:
+    12px 0 38px rgba(0,0,0,.20);
+
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+/* ---------- Brand ---------- */
+
+.logo{
+  gap:12px;
+  padding:4px 8px 21px;
+}
+
+.logo-mark{
+  width:42px;
+  height:42px;
+
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7549ff 0%,
+      #9b61ff 100%
+    );
+
+  font-size:13px;
+
+  box-shadow:
+    0 8px 25px rgba(117,73,255,.30),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.logo b{
+  color:#f5f7fb;
+  font-size:14px;
+  letter-spacing:-.2px;
+}
+
+.logo span{
+  margin-top:3px;
+  color:#71839a;
+  font-size:8px;
+  letter-spacing:.05px;
+}
+
+/* ---------- Store selector ---------- */
+
+.store-switch{
+  min-height:49px;
+
+  padding:11px 12px;
+  margin:0 2px 17px;
+
+  border:1px solid #1b2d42;
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0e1928,
+      #0b1522
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 5px 18px rgba(0,0,0,.10);
+}
+
+.store-switch>div{
+  gap:8px;
+}
+
+.store-switch small{
+  color:#31e79e;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.6px;
+}
+
+.live-dot{
+  width:7px;
+  height:7px;
+
+  box-shadow:
+    0 0 0 4px rgba(32,223,160,.08),
+    0 0 12px rgba(32,223,160,.40);
+}
+
+/* ---------- Navigation ---------- */
+
+.sidebar nav{
+  gap:3px;
+}
+
+.nav{
+  min-height:43px;
+
+  gap:12px;
+  padding:10px 12px;
+  margin:1px 0;
+
+  border-radius:10px;
+
+  color:#7f91a8;
+
+  font-size:10.5px;
+  font-weight:600;
+
+  transition:
+    background .16s ease,
+    color .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
+}
+
+.nav svg{
+  width:17px;
+  height:17px;
+  opacity:.82;
+
+  transition:
+    opacity .16s ease,
+    transform .16s ease;
+}
+
+.nav:hover{
+  background:#101d2c;
+  color:#e6edf5;
+
+  transform:translateX(2px);
+}
+
+.nav:hover svg{
+  opacity:1;
+  transform:scale(1.04);
+}
+
+/* ---------- Active navigation ---------- */
+
+.nav.active{
+  background:
+    linear-gradient(
+      90deg,
+      #7549ff 0%,
+      #8653ff 100%
+    );
+
+  color:#fff;
+
+  box-shadow:
+    0 8px 24px rgba(117,73,255,.24),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.nav.active::before{
+  left:-12px;
+  top:8px;
+
+  width:3px;
+  height:27px;
+
+  background:#b49aff;
+
+  box-shadow:
+    0 0 10px rgba(180,154,255,.35);
+}
+
+.nav.active svg{
+  opacity:1;
+}
+
+/* ---------- Notification badge ---------- */
+
+.nav em{
+  min-width:20px;
+  height:20px;
+
+  font-size:9px;
+
+  background:#ff4f7b;
+
+  border:2px solid #0b1420;
+
+  box-shadow:
+    0 0 13px rgba(255,79,123,.32);
+}
+
+/* ---------- Sidebar bottom ---------- */
+
+.sidebar-foot{
+  padding-top:15px;
+}
+
+.edge-status{
+  padding:12px 12px;
+  margin:0 2px 12px;
+
+  border:1px solid #1c2e42;
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1928,
+      #0b1522
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.02),
+    0 7px 20px rgba(0,0,0,.12);
+}
+
+.edge-status div{
+  gap:7px;
+  color:#aebcd0;
+}
+
+.edge-status div svg{
+  width:14px;
+  height:14px;
+}
+
+.edge-status b{
+  font-size:9px;
+}
+
+.edge-status strong{
+  margin-top:6px;
+  color:#f0f4f8;
+  font-size:10px;
+}
+
+.edge-status>span{
+  margin-top:3px;
+  color:#667990;
+  font-size:7px;
+}
+
+/* ---------- Admin profile ---------- */
+
+.profile{
+  gap:9px;
+  padding:7px 6px;
+}
+
+.profile>div{
+  width:33px;
+  height:33px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7549ff,
+      #9b61ff
+    );
+
+  font-size:10px;
+
+  box-shadow:
+    0 6px 18px rgba(117,73,255,.24);
+}
+
+.profile b{
+  color:#f4f7fb;
+  font-size:10px;
+}
+
+.profile span{
+  color:#71839a;
+  font-size:8px;
+}
+
+.profile button{
+  padding:5px;
+  color:#71839a;
+
+  transition:
+    color .16s ease,
+    background .16s ease;
+}
+
+.profile button:hover{
+  color:#fff;
+  background:#111e2d;
+  border-radius:7px;
+}
+
+/* ---------- Sidebar responsive width ---------- */
+
+@media (max-width:900px){
+  .sidebar{
+    width:220px;
+  }
+
+  main{
+    margin-left:220px;
+  }
+}
+
+@media (max-width:720px){
+  .sidebar{
+    display:none;
+  }
+
+  main{
+    margin-left:0;
+  }
+}
+
+
+/* =========================================================
+   PHASE 2 TYPOGRAPHY PASS
+   Readability improvement — visual only.
+   ========================================================= */
+
+/* ---------- Sidebar ---------- */
+
+.nav{
+  font-size:12px;
+  font-weight:600;
+}
+
+.nav svg{
+  width:18px;
+  height:18px;
+}
+
+.store-switch{
+  font-size:12px;
+}
+
+.store-switch small{
+  font-size:8px;
+}
+
+.logo b{
+  font-size:14px;
+}
+
+.logo span{
+  font-size:9px;
+}
+
+.edge-status b{
+  font-size:10px;
+}
+
+.edge-status strong{
+  font-size:11px;
+}
+
+.edge-status>span{
+  font-size:8px;
+}
+
+.profile b{
+  font-size:11px;
+}
+
+.profile span{
+  font-size:9px;
+}
+
+/* ---------- Header ---------- */
+
+.breadcrumb{
+  font-size:10px;
+}
+
+.search input{
+  font-size:10px;
+}
+
+/* ---------- Page description ---------- */
+
+.page-head p{
+  font-size:11px;
+}
+
+/* ---------- KPI cards ---------- */
+
+.stat span{
+  font-size:10px;
+}
+
+.stat strong{
+  font-size:29px;
+}
+
+.stat small{
+  font-size:9px;
+}
+
+/* ---------- Panel headings ---------- */
+
+.panel-head h3{
+  font-size:16px;
+}
+
+.panel-head p{
+  font-size:10px;
+}
+
+.link{
+  font-size:10px;
+}
+
+/* ---------- Store activity ---------- */
+
+.chart-value{
+  font-size:28px;
+}
+
+.chart-value span{
+  font-size:10px;
+}
+
+.xlabels{
+  font-size:9px;
+}
+
+/* ---------- Needs attention ---------- */
+
+.attention{
+  font-size:11px;
+}
+
+.attention:empty::before{
+  font-size:11px;
+}
+
+.product-mini b{
+  font-size:11px;
+}
+
+.product-mini span{
+  font-size:10px;
+}
+
+/* ---------- Trolley table ---------- */
+
+.cart-row{
+  font-size:11px;
+}
+
+.cart-row>div b{
+  font-size:13px;
+}
+
+.cart-row>div small{
+  font-size:10px;
+}
+
+.cart-row>strong{
+  font-size:13px;
+}
+
+.cart-row .tag{
+  font-size:10px;
+  padding:6px 10px;
+}
+
+/* ---------- Tags / status ---------- */
+
+.tag{
+  font-size:10px;
+}
+
+/* ---------- Live store cards ---------- */
+
+.cart-head{
+  font-size:11px;
+}
+
+.cart-head small{
+  font-size:9px;
+}
+
+.cart-card>strong{
+  font-size:28px;
+}
+
+.items-label{
+  font-size:9px;
+}
+
+.cart-card footer{
+  font-size:11px;
+}
+
+.cart-card footer span{
+  font-size:9px;
+}
+
+.cart-card em{
+  font-size:9px;
+}
+
+/* ---------- Generic tables ---------- */
+
+table{
+  font-size:11px;
+}
+
+th{
+  font-size:9px;
+}
+
+td{
+  font-size:12px;
+}
+
+td small{
+  font-size:9px;
+}
+
+/* ---------- Guardian ---------- */
+
+.guardian-row b{
+  font-size:11px;
+}
+
+.guardian-row span{
+  font-size:9px;
+}
+
+.guardian-row small{
+  font-size:8px;
+}
+
+/* ---------- AI ---------- */
+
+.ai-hero>span{
+  font-size:9px;
+}
+
+.ai-hero p{
+  font-size:10px;
+}
+
+.ai-metric span{
+  font-size:9px;
+}
+
+.recommend b{
+  font-size:11px;
+}
+
+.recommend span{
+  font-size:9px;
+}
+
+.flow{
+  font-size:9px;
+}
+
+/* ---------- Settings/forms ---------- */
+
+.setting{
+  font-size:10px;
+}
+
+.setting input,
+.setting select{
+  font-size:11px;
+}
+
+.setting-row b{
+  font-size:11px;
+}
+
+.setting-row div span{
+  font-size:9px;
+}
+
+.form-grid label{
+  font-size:10px;
+}
+
+.form-grid input,
+.form-grid select{
+  font-size:11px;
+}
+
+/* ---------- Modal ---------- */
+
+.modal-head h2{
+  font-size:20px;
+}
+
+.modal-head p{
+  font-size:10px;
+}
+
+.order-note{
+  font-size:9px;
+}
+
+/* ---------- Keep mobile readable without oversized text ---------- */
+
+@media (max-width:720px){
+  .nav{
+    font-size:11px;
+  }
+
+  .page-head p{
+    font-size:10px;
+  }
+
+  .cart-row>div b{
+    font-size:12px;
+  }
+
+  .cart-row>strong{
+    font-size:12px;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 3
+   PREMIUM TOP HEADER
+   Visual-only. Existing JSX/functionality untouched.
+   ========================================================= */
+
+/* ---------- Header shell ---------- */
+
+.app header{
+  height:72px;
+  padding:0 38px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,12,21,.94) 0%,
+      rgba(7,12,21,.82) 100%
+    );
+
+  border-bottom:1px solid rgba(38,57,80,.72);
+
+  box-shadow:
+    0 8px 28px rgba(0,0,0,.12);
+
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+
+/* ---------- Breadcrumb ---------- */
+
+.breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  color:#71839a;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.05px;
+}
+
+.breadcrumb b{
+  color:#dce5ef;
+  font-weight:700;
+}
+
+.breadcrumb svg{
+  width:12px;
+  height:12px;
+  opacity:.48;
+}
+
+/* ---------- Right side ---------- */
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:auto;
+}
+
+/* ---------- Search ---------- */
+
+.search{
+  width:292px;
+  height:40px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 12px;
+
+  border:1px solid #203249;
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14,24,38,.94),
+      rgba(10,18,29,.94)
+    );
+
+  color:#71839a;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 5px 16px rgba(0,0,0,.08);
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.search:hover{
+  border-color:#2b4059;
+  background:#101b2b;
+}
+
+.search:focus-within{
+  border-color:#7652e8;
+
+  background:#101b2b;
+
+  box-shadow:
+    0 0 0 3px rgba(128,87,255,.10),
+    0 7px 20px rgba(0,0,0,.12);
+}
+
+.search svg{
+  width:15px;
+  height:15px;
+  flex:none;
+  opacity:.72;
+}
+
+.search input{
+  width:100%;
+  margin-left:8px;
+
+  border:0;
+  outline:0;
+
+  background:transparent;
+  color:#e8eef6;
+
+  font-size:10px;
+  font-weight:500;
+}
+
+.search input::placeholder{
+  color:#66788e;
+}
+
+/* ---------- Notification ---------- */
+
+.bell{
+  position:relative;
+
+  width:38px;
+  height:38px;
+
+  display:grid;
+  place-items:center;
+
+  padding:0;
+
+  border:1px solid transparent;
+  border-radius:10px;
+
+  background:transparent;
+  color:#8191a6;
+
+  transition:
+    background .16s ease,
+    border-color .16s ease,
+    color .16s ease;
+}
+
+.bell svg{
+  width:17px;
+  height:17px;
+}
+
+.bell:hover{
+  background:#101c2b;
+  border-color:#1d3046;
+  color:#edf3f9;
+}
+
+.bell i{
+  position:absolute;
+  right:2px;
+  top:1px;
+
+  width:14px;
+  height:14px;
+
+  display:grid;
+  place-items:center;
+
+  border:2px solid #080e17;
+  border-radius:50%;
+
+  background:#ff4f7b;
+  color:#fff;
+
+  font-size:7px;
+  font-style:normal;
+  font-weight:800;
+
+  box-shadow:
+    0 0 11px rgba(255,79,123,.38);
+}
+
+/* ---------- Avatar ---------- */
+
+.avatar{
+  width:38px;
+  height:38px;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid rgba(162,119,255,.25);
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7549ff 0%,
+      #9b61ff 100%
+    );
+
+  color:#fff;
+
+  font-size:11px;
+  font-weight:800;
+
+  box-shadow:
+    0 7px 20px rgba(117,73,255,.25),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+/* ---------- Header responsive ---------- */
+
+@media (max-width:1100px){
+  .app header{
+    padding:0 28px;
+  }
+
+  .search{
+    width:250px;
+  }
+}
+
+@media (max-width:720px){
+  .app header{
+    height:64px;
+    padding:0 15px;
+  }
+
+  .header-right{
+    gap:7px;
+  }
+
+  .search{
+    width:190px;
+  }
+
+  .bell{
+    width:35px;
+    height:35px;
+  }
+
+  .avatar{
+    width:35px;
+    height:35px;
+  }
+}
+
+@media (max-width:480px){
+  .search{
+    display:none;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 4
+   DASHBOARD HERO / STORE OVERVIEW
+   Visual-only. Existing JSX/functionality untouched.
+   ========================================================= */
+
+/* ---------- Hero area ---------- */
+
+.page-head{
+  position:relative;
+
+  min-height:88px;
+
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  padding:2px 2px 18px;
+  margin-bottom:18px;
+}
+
+/* Soft reference-style glow behind the hero */
+.page-head::before{
+  content:"";
+
+  position:absolute;
+  z-index:-1;
+
+  top:-34px;
+  right:-20px;
+
+  width:520px;
+  height:180px;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(111,76,255,.14) 0%,
+      rgba(111,76,255,.055) 38%,
+      transparent 72%
+    );
+
+  filter:blur(10px);
+}
+
+/* ---------- Eyebrow ---------- */
+
+.eyebrow{
+  margin-bottom:7px;
+
+  color:#9a75ff;
+
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  line-height:1;
+  text-transform:uppercase;
+}
+
+/* ---------- Main heading ---------- */
+
+.page-head h1{
+  margin:0;
+
+  color:#f8fafc;
+
+  font-size:36px;
+  font-weight:750;
+  line-height:1.08;
+  letter-spacing:-1.2px;
+
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.20);
+}
+
+/* ---------- Subtitle ---------- */
+
+.page-head p{
+  max-width:520px;
+
+  margin:8px 0 0;
+
+  color:#8192a8;
+
+  font-size:11px;
+  line-height:1.55;
+}
+
+/* ---------- Hero action ---------- */
+
+.page-head .primary{
+  flex:none;
+
+  margin-top:14px;
+
+  min-height:42px;
+
+  padding:0 17px;
+
+  border:1px solid rgba(178,151,255,.18);
+  border-radius:11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7449ff 0%,
+      #8958ff 100%
+    );
+
+  color:#fff;
+
+  font-size:10px;
+  font-weight:700;
+
+  box-shadow:
+    0 10px 30px rgba(111,76,255,.27),
+    inset 0 1px 0 rgba(255,255,255,.13);
+
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    filter .16s ease;
+}
+
+.page-head .primary:hover{
+  transform:translateY(-1px);
+
+  filter:brightness(1.05);
+
+  box-shadow:
+    0 14px 34px rgba(111,76,255,.34),
+    inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.page-head .primary:active{
+  transform:translateY(0);
+}
+
+/* ---------- Hero-to-KPI spacing ---------- */
+
+.page-head + .stats{
+  margin-top:0;
+}
+
+/* ---------- Desktop balance ---------- */
+
+@media (min-width:1400px){
+  .page-head{
+    min-height:92px;
+  }
+
+  .page-head h1{
+    font-size:38px;
+  }
+
+  .page-head p{
+    font-size:11px;
+  }
+
+  .page-head .primary{
+    margin-top:15px;
+  }
+}
+
+/* ---------- Smaller desktop ---------- */
+
+@media (max-width:1100px){
+  .page-head h1{
+    font-size:32px;
+  }
+
+  .page-head{
+    min-height:82px;
+  }
+
+  .page-head .primary{
+    margin-top:10px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:720px){
+  .page-head{
+    min-height:0;
+
+    display:block;
+
+    padding-bottom:16px;
+  }
+
+  .page-head h1{
+    font-size:29px;
+  }
+
+  .page-head p{
+    max-width:100%;
+    font-size:10px;
+  }
+
+  .page-head .primary{
+    margin-top:14px;
+  }
+
+  .page-head::before{
+    width:360px;
+    height:160px;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 5
+   KPI CARDS / STORE METRICS
+   Visual-only. Existing JSX/data/functionality untouched.
+   ========================================================= */
+
+/* ---------- KPI grid ---------- */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-bottom:16px;
+}
+
+/* ---------- KPI card ---------- */
+
+.stat{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+
+  min-height:112px;
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding:18px 19px;
+
+  border:1px solid #1d3046;
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,27,43,.98),
+      rgba(10,20,32,.98)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.17),
+    inset 0 1px 0 rgba(255,255,255,.025);
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+/* Soft colored corner glow */
+.stat::after{
+  content:"";
+
+  position:absolute;
+  z-index:-1;
+
+  top:-46px;
+  right:-46px;
+
+  width:105px;
+  height:105px;
+
+  border-radius:50%;
+
+  background:rgba(128,87,255,.11);
+
+  filter:blur(1px);
+}
+
+/* Different accent for each KPI */
+.stat:nth-child(2)::after{
+  background:rgba(53,167,255,.10);
+}
+
+.stat:nth-child(3)::after{
+  background:rgba(244,179,61,.10);
+}
+
+.stat:nth-child(4)::after{
+  background:rgba(255,79,123,.10);
+}
+
+.stat:hover{
+  transform:translateY(-2px);
+
+  border-color:#2a405a;
+
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+/* ---------- KPI icon ---------- */
+
+.stat-icon{
+  flex:none;
+
+  width:44px;
+  height:44px;
+
+  display:grid;
+  place-items:center;
+
+  border:1px solid rgba(128,87,255,.30);
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(128,87,255,.15),
+      rgba(128,87,255,.055)
+    );
+
+  color:#a982ff;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.stat:nth-child(2) .stat-icon{
+  border-color:rgba(53,167,255,.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(53,167,255,.14),
+      rgba(53,167,255,.045)
+    );
+
+  color:#52b5ff;
+}
+
+.stat:nth-child(3) .stat-icon{
+  border-color:rgba(244,179,61,.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(244,179,61,.14),
+      rgba(244,179,61,.045)
+    );
+
+  color:#ffc75a;
+}
+
+.stat:nth-child(4) .stat-icon{
+  border-color:rgba(255,79,123,.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,79,123,.14),
+      rgba(255,79,123,.045)
+    );
+
+  color:#ff7095;
+}
+
+.stat-icon svg{
+  width:19px;
+  height:19px;
+}
+
+/* ---------- KPI content ---------- */
+
+.stat > div:last-child{
+  min-width:0;
+}
+
+.stat span{
+  display:block;
+
+  color:#8d9eb2;
+
+  font-size:10px;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.stat strong{
+  display:block;
+
+  margin:5px 0 4px;
+
+  color:#f7f9fc;
+
+  font-size:29px;
+  font-weight:800;
+  line-height:1;
+
+  letter-spacing:-.55px;
+}
+
+.stat small{
+  display:block;
+
+  color:#63768d;
+
+  font-size:9px;
+  line-height:1.25;
+}
+
+/* Positive sales indicator */
+.stat:first-child small{
+  color:#20dfa0;
+  font-weight:700;
+}
+
+/* ---------- KPI responsive ---------- */
+
+@media (max-width:1050px){
+  .stats{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .stat{
+    min-height:105px;
+  }
+}
+
+@media (max-width:620px){
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .stat{
+    min-height:98px;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 6
+   STORE ACTIVITY / SALES CHART
+   Visual-only. Existing chart data/functionality untouched.
+   ========================================================= */
+
+/* ---------- Activity panel ---------- */
+
+.dashboard-grid .panel:first-child{
+  overflow:hidden;
+  min-height:210px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1928 0%,
+      #0b1523 100%
+    );
+}
+
+/* ---------- Chart value ---------- */
+
+.dashboard-grid .panel:first-child .chart-value{
+  margin-top:3px;
+  margin-bottom:0;
+
+  color:#f8fafc;
+
+  font-size:29px;
+  font-weight:800;
+  letter-spacing:-.6px;
+}
+
+.dashboard-grid .panel:first-child .chart-value span{
+  color:#6f8197;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0;
+}
+
+/* ---------- Chart canvas ---------- */
+
+.dashboard-grid .panel:first-child .chart{
+  position:relative;
+
+  height:155px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:4px 8px 0;
+}
+
+/* Subtle baseline/grid area */
+.dashboard-grid .panel:first-child .bars{
+  position:relative;
+
+  height:100px;
+
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+
+  gap:8px;
+
+  margin-top:3px;
+  padding:0 7px;
+
+  border-bottom:1px solid #24364d;
+}
+
+/* Very subtle chart guide line */
+.dashboard-grid .panel:first-child .bars::before{
+  content:"";
+
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+
+  border-top:1px dashed rgba(72,96,123,.18);
+
+  pointer-events:none;
+}
+
+/* ---------- Sales bars ---------- */
+
+.dashboard-grid .panel:first-child .bars i{
+  position:relative;
+  z-index:1;
+
+  display:block;
+
+  width:24px;
+  max-width:24px;
+
+  min-height:5px;
+
+  border-radius:5px 5px 2px 2px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #a277ff 0%,
+      #7549ff 100%
+    );
+
+  box-shadow:
+    0 -2px 12px rgba(128,87,255,.18);
+
+  opacity:.94;
+
+  transition:
+    transform .16s ease,
+    opacity .16s ease,
+    filter .16s ease;
+}
+
+/* Alternate bar tone */
+.dashboard-grid .panel:first-child .bars i:nth-child(even){
+  background:
+    linear-gradient(
+      180deg,
+      #46b2ff 0%,
+      #278ee2 100%
+    );
+
+  box-shadow:
+    0 -2px 12px rgba(53,167,255,.15);
+}
+
+/* Hover */
+.dashboard-grid .panel:first-child .bars i:hover{
+  transform:translateY(-3px);
+  opacity:1;
+  filter:brightness(1.12);
+}
+
+/* ---------- Chart labels ---------- */
+
+.dashboard-grid .panel:first-child .xlabels{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  padding:7px 7px 0;
+
+  color:#647891;
+
+  font-size:9px;
+  font-weight:600;
+}
+
+.dashboard-grid .panel:first-child .xlabels span{
+  white-space:nowrap;
+}
+
+/* ---------- Panel header ---------- */
+
+.dashboard-grid .panel:first-child .panel-head{
+  margin-bottom:8px;
+}
+
+.dashboard-grid .panel:first-child .panel-head h3{
+  font-size:16px;
+  font-weight:750;
+}
+
+.dashboard-grid .panel:first-child .panel-head p{
+  margin-top:4px;
+  font-size:10px;
+}
+
+/* ---------- Give chart more visual presence ---------- */
+
+.dashboard-grid .panel:first-child{
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:900px){
+  .dashboard-grid .panel:first-child{
+    min-height:195px;
+  }
+
+  .dashboard-grid .panel:first-child .chart{
+    height:140px;
+  }
+
+  .dashboard-grid .panel:first-child .bars{
+    height:88px;
+  }
+
+  .dashboard-grid .panel:first-child .bars i{
+    width:20px;
+    max-width:20px;
+  }
+}
+
+@media (max-width:620px){
+  .dashboard-grid .panel:first-child .bars{
+    gap:4px;
+    padding:0 3px;
+  }
+
+  .dashboard-grid .panel:first-child .bars i{
+    width:14px;
+    max-width:14px;
+  }
+
+  .dashboard-grid .panel:first-child .xlabels{
+    font-size:8px;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 7
+   NEEDS ATTENTION / EMPTY & ALERT STATE
+   Visual-only. Existing data/functionality untouched.
+   ========================================================= */
+
+/* ---------- Attention panel ---------- */
+
+.dashboard-grid .attention{
+  position:relative;
+  overflow:hidden;
+  min-height:210px;
+
+  display:flex;
+  flex-direction:column;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1928 0%,
+      #0b1523 100%
+    );
+
+  border:1px solid #1d3046;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.17),
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+/* Very subtle amber/purple ambient glow */
+.dashboard-grid .attention::after{
+  content:"";
+
+  position:absolute;
+  right:-55px;
+  top:-55px;
+
+  width:135px;
+  height:135px;
+
+  border-radius:50%;
+
+  background:rgba(244,179,61,.055);
+
+  filter:blur(5px);
+
+  pointer-events:none;
+}
+
+/* ---------- Heading ---------- */
+
+.dashboard-grid .attention .panel-head{
+  position:relative;
+  z-index:1;
+
+  margin-bottom:0;
+}
+
+.dashboard-grid .attention .panel-head h3{
+  font-size:16px;
+  font-weight:750;
+}
+
+.dashboard-grid .attention .panel-head p{
+  margin-top:4px;
+  font-size:10px;
+}
+
+/* ---------- Empty-state text ---------- */
+
+.dashboard-grid .attention > p,
+.dashboard-grid .attention > span{
+  position:relative;
+  z-index:1;
+
+  color:#aab8c8;
+
+  font-size:11px;
+  font-weight:600;
+  line-height:1.5;
+}
+
+/* Center the normal empty-state content */
+.dashboard-grid .attention > p:last-child,
+.dashboard-grid .attention > span:last-child{
+  margin:auto;
+  padding:0 18px;
+  text-align:center;
+}
+
+/* ---------- Empty-state visual marker ----------
+   Uses existing CSS only; no JSX or icon dependency.
+   ---------- */
+
+.dashboard-grid .attention > p:last-child::before,
+.dashboard-grid .attention > span:last-child::before{
+  content:"✓";
+
+  width:38px;
+  height:38px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin:0 auto 11px;
+
+  border:1px solid rgba(32,223,160,.28);
+  border-radius:11px;
+
+  background:rgba(32,223,160,.09);
+
+  color:#20dfa0;
+
+  font-size:18px;
+  font-weight:800;
+
+  box-shadow:
+    0 7px 20px rgba(32,223,160,.08);
+}
+
+/* ---------- Existing attention items ----------
+   If real alert/product content is rendered, keep it
+   aligned as a useful list instead of centering it.
+   ---------- */
+
+.dashboard-grid .attention .product-mini{
+  position:relative;
+  z-index:1;
+
+  width:100%;
+
+  padding:12px;
+
+  border:1px solid #1e3147;
+  border-radius:11px;
+
+  background:#0b1624;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.018);
+
+  transition:
+    border-color .16s ease,
+    background .16s ease;
+}
+
+.dashboard-grid .attention .product-mini:hover{
+  border-color:#2b4059;
+  background:#101c2b;
+}
+
+.dashboard-grid .attention .product-mini b{
+  color:#edf3f8;
+  font-size:11px;
+}
+
+.dashboard-grid .attention .product-mini span{
+  color:#7e91a8;
+  font-size:10px;
+}
+
+/* ---------- Alert severity accents ---------- */
+
+.dashboard-grid .attention .text-danger{
+  color:#ff6d91;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:900px){
+  .dashboard-grid .attention{
+    min-height:190px;
+  }
+}
+
+@media (max-width:620px){
+  .dashboard-grid .attention{
+    min-height:170px;
+  }
+
+  .dashboard-grid .attention > p:last-child,
+  .dashboard-grid .attention > span:last-child{
+    font-size:10px;
+  }
+}
+
+
+/* =========================================================
+   PHASE 8 — SAFE TROLLEY ACTIVITY
+   Only visual styling.
+   Does NOT change layout structure or functionality.
+   ========================================================= */
+
+.dashboard-grid .cart-list{
+  border-top:1px solid #1b2d42;
+  overflow:hidden;
+}
+
+.dashboard-grid .cart-row{
+  min-height:64px;
+  padding:10px 14px;
+
+  border-bottom:1px solid #192b40;
+  background:rgba(11,21,34,.30);
+
+  transition:
+    background .16s ease,
+    border-color .16s ease;
+}
+
+.dashboard-grid .cart-row:last-child{
+  border-bottom:0;
+}
+
+.dashboard-grid .cart-row:hover{
+  background:rgba(117,73,255,.045);
+  border-color:#243850;
+}
+
+/* Cart name */
+.dashboard-grid .cart-row b{
+  color:#edf3f8;
+  font-size:13px;
+  font-weight:750;
+}
+
+/* Secondary text such as Available / Shopping */
+.dashboard-grid .cart-row small{
+  color:#72859c;
+  font-size:9px;
+  font-weight:600;
+}
+
+/* Item count */
+.dashboard-grid .cart-row{
+  color:#8193a8;
+  font-size:10px;
+}
+
+/* Price */
+.dashboard-grid .cart-row strong{
+  color:#f5f8fb;
+  font-size:13px;
+  font-weight:800;
+}
+
+/* Status badge */
+.dashboard-grid .cart-row .tag{
+  padding:5px 9px;
+
+  border:1px solid rgba(32,223,160,.24);
+  border-radius:7px;
+
+  background:rgba(32,223,160,.075);
+  color:#20dfa0;
+
+  font-size:9px;
+  font-weight:750;
+  line-height:1;
+}
+
+/* Existing danger text */
+.dashboard-grid .cart-row .text-danger{
+  color:#ff6d91;
+}
+
+/* Live-store link */
+.dashboard-grid .panel-head .link{
+  color:#9a75ff;
+  font-size:10px;
+  font-weight:700;
+
+  transition:color .16s ease;
+}
+
+.dashboard-grid .panel-head .link:hover{
+  color:#c0a8ff;
+}
+
+/* Small-screen readability only */
+@media (max-width:900px){
+  .dashboard-grid .cart-row{
+    min-height:60px;
+    padding:9px 11px;
+  }
+
+  .dashboard-grid .cart-row b{
+    font-size:12px;
+  }
+
+  .dashboard-grid .cart-row strong{
+    font-size:12px;
+  }
+}
+
+@media (max-width:620px){
+  .dashboard-grid .cart-row{
+    padding:8px;
+  }
+
+  .dashboard-grid .cart-row .tag{
+    padding:5px 7px;
+    font-size:8px;
+  }
+}
+
+
+/* =========================================================
+   SMART RETAIL — PHASE 9
+   LIVE STORE PAGE
+   Visual-only. Existing React/data/functionality untouched.
+   ========================================================= */
+
+/* ---------- Live Store page header ---------- */
+
+.live-grid{
+  gap:16px;
+}
+
+.live-grid .page-head{
+  margin-bottom:17px;
+}
+
+.live-grid .page-head h1{
+  font-size:34px;
+}
+
+.live-grid .page-head p{
+  color:#8192a8;
+  font-size:11px;
+}
+
+/* ---------- Edge Live pill ---------- */
+
+.live-pill{
+  min-height:29px;
+
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+
+  padding:0 11px;
+
+  border:1px solid rgba(32,223,160,.24);
+  border-radius:999px;
+
+  background:rgba(32,223,160,.07);
+
+  color:#20dfa0;
+
+  font-size:9px;
+  font-weight:750;
+
+  box-shadow:
+    0 5px 16px rgba(32,223,160,.06);
+}
+
+.live-pill::before{
+  content:"";
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+  background:#20dfa0;
+
+  box-shadow:0 0 9px rgba(32,223,160,.40);
+}
+
+/* ---------- Live Store metric cards ---------- */
+
+.live-grid .stats{
+  gap:14px;
+  margin-bottom:16px;
+}
+
+.live-grid .stat{
+  min-height:106px;
+}
+
+/* ---------- Main trolley workspace ---------- */
+
+.live-grid .panel{
+  border-radius:15px;
+  border-color:#1d3046;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1928 0%,
+      #0b1523 100%
+    );
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.17),
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+/* ---------- Smart trolleys section ---------- */
+
+.live-grid .panel-head h3{
+  font-size:16px;
+  font-weight:750;
+}
+
+.live-grid .panel-head p{
+  margin-top:4px;
+  color:#71839a;
+  font-size:10px;
+}
+
+/* ---------- Trolley cards ---------- */
+
+.live-grid .cart-grid{
+  gap:10px;
+}
+
+.live-grid .cart-card{
+  position:relative;
+
+  min-height:108px;
+
+  padding:15px;
+
+  border:1px solid #1d3046;
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101c2b,
+      #0c1725
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.018);
+
+  transition:
+    transform .16s ease,
+    border-color .16s ease,
+    background .16s ease,
+    box-shadow .16s ease;
+}
+
+.live-grid .cart-card:hover{
+  transform:translateY(-2px);
+
+  border-color:#2b4059;
+
+  background:#111e2d;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.15);
+}
+
+/* Selected trolley */
+.live-grid .cart-card.selected{
+  border-color:#8057ff;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(117,73,255,.17),
+      rgba(22,28,51,.96)
+    );
+
+  box-shadow:
+    0 9px 26px rgba(117,73,255,.12),
+    inset 0 1px 0 rgba(178,151,255,.08);
+}
+
+.live-grid .cart-card > strong{
+  color:#f6f8fb;
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-.4px;
+}
+
+.live-grid .cart-card .items-label{
+  color:#71849a;
+  font-size:9px;
+}
+
+/* ---------- Trolley status ---------- */
+
+.live-grid .cart-card > span{
+  color:#7f91a7;
+  font-size:9px;
+  font-weight:650;
+}
+
+.live-grid .cart-card footer{
+  margin-top:10px;
+
+  color:#f0f4f8;
+  font-size:10px;
+  font-weight:700;
+}
+
+.live-grid .cart-card footer span{
+  color:#71849a;
+  font-size:9px;
+}
+
+.live-grid .cart-card em{
+  color:#20dfa0;
+  font-size:9px;
+  font-style:normal;
+  font-weight:750;
+}
+
+/* Alert trolley */
+.live-grid .cart-card.alert{
+  border-color:rgba(255,79,123,.30);
+}
+
+.live-grid .cart-card.alert em{
+  color:#ff6d91;
+}
+
+/* ---------- Selected trolley detail ---------- */
+
+.live-grid .detail-top{
+  padding:15px;
+
+  border:1px solid #1c3046;
+  border-radius:12px;
+
+  background:#0b1624;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+.live-grid .detail-top b{
+  color:#edf3f8;
+  font-size:11px;
+}
+
+.live-grid .detail-top span{
+  color:#74869d;
+  font-size:9px;
+}
+
+/* ---------- Detail metrics ---------- */
+
+.live-grid .detail-top strong{
+  color:#f6f8fb;
+  font-size:13px;
+  font-weight:800;
+}
+
+/* ---------- Current items ---------- */
+
+.live-grid .line-items{
+  margin-top:14px;
+}
+
+.live-grid .line-items h4{
+  color:#e9eef5;
+  font-size:11px;
+  font-weight:750;
+}
+
+.live-grid .line-items p{
+  color:#6f8299;
+  font-size:10px;
+}
+
+/* ---------- Verification success ---------- */
+
+.live-grid .verification{
+  margin-top:14px;
+
+  padding:12px;
+
+  border:1px solid rgba(32,223,160,.20);
+  border-radius:10px;
+
+  background:rgba(32,223,160,.07);
+
+  color:#20dfa0;
+}
+
+.live-grid .verification b{
+  font-size:10px;
+}
+
+.live-grid .verification span{
+  display:block;
+  margin-top:3px;
+
+  color:#7edab9;
+  font-size:8px;
+  line-height:1.4;
+}
+
+/* ---------- Checkout button ---------- */
+
+.live-grid .primary{
+  min-height:42px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7549ff,
+      #8a58ff
+    );
+
+  box-shadow:
+    0 10px 26px rgba(117,73,255,.22),
+    inset 0 1px 0 rgba(255,255,255,.12);
+
+  font-size:10px;
+  font-weight:750;
+}
+
+.live-grid .primary:hover{
+  filter:brightness(1.05);
+
+  box-shadow:
+    0 13px 30px rgba(117,73,255,.30),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+/* ---------- Keep detail area spacious ---------- */
+
+.live-grid .detail-panel{
+  min-height:430px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:1000px){
+  .live-grid .page-head h1{
+    font-size:31px;
+  }
+
+  .live-grid .cart-card{
+    min-height:102px;
+  }
+}
+
+@media (max-width:720px){
+  .live-grid .page-head h1{
+    font-size:28px;
+  }
+
+  .live-grid .cart-card{
+    min-height:96px;
+    padding:13px;
+  }
+
+  .live-grid .detail-panel{
+    min-height:0;
+  }
+}
+
+/* =========================================================
+   SMART RETAIL — PHASE 10
+   PRODUCTS / CATALOG
+   SAFE VISUAL PASS — no structural or JS changes.
+   ========================================================= */
+
+.page-head .primary{
+  min-height:42px;
+  padding:0 17px;
+  border-radius:10px;
+  font-size:10px;
+  font-weight:750;
+}
+
+.table-wrap{
+  overflow-x:auto;
+  border-radius:12px;
+}
+
+.table-wrap table{
+  width:100%;
+  min-width:760px;
+  border-collapse:separate;
+  border-spacing:0;
+}
+
+.table-wrap th{
+  height:44px;
+  padding:0 16px;
+  background:#0b1624;
+  border-bottom:1px solid #203249;
+  color:#71839a;
+  font-size:9px;
+  font-weight:750;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.table-wrap td{
+  min-height:62px;
+  padding:13px 16px;
+  background:#0d1928;
+  border-bottom:1px solid #192b40;
+  color:#aebdcd;
+  font-size:11px;
+  font-weight:550;
+  vertical-align:middle;
+}
+
+.table-wrap tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.table-wrap tbody tr:hover td{
+  background:#101d2c;
+}
+
+.table-wrap td b{
+  display:block;
+  color:#edf3f8;
+  font-size:12px;
+  font-weight:750;
+  line-height:1.25;
+}
+
+.table-wrap td small{
+  display:block;
+  margin-top:4px;
+  color:#657990;
+  font-size:9px;
+  font-weight:550;
+}
+
+.table-wrap td code{
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:0 9px;
+  border:1px solid #243850;
+  border-radius:7px;
+  background:#091522;
+  color:#9d8aff;
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:9px;
+  font-weight:650;
+  white-space:nowrap;
+}
+
+.table-wrap td strong{
+  color:#f5f8fb;
+  font-size:12px;
+  font-weight:800;
+}
+
+.table-wrap .tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:0 9px;
+  border-radius:7px;
+  font-size:9px;
+  font-weight:750;
+}
+
+.table-wrap .tag.green{
+  border:1px solid rgba(32,223,160,.22);
+  background:rgba(32,223,160,.07);
+  color:#20dfa0;
+}
+
+.table-wrap .tag.amber{
+  border:1px solid rgba(244,179,61,.24);
+  background:rgba(244,179,61,.07);
+  color:#ffc75a;
+}
+
+.table-wrap .tag.red{
+  border:1px solid rgba(255,79,123,.24);
+  background:rgba(255,79,123,.07);
+  color:#ff7095;
+}
+
+.table-wrap .text-edit,
+.table-wrap .text-danger{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:0 9px;
+  border-radius:7px;
+  font-size:9px;
+  font-weight:700;
+  transition:background .16s ease,color .16s ease;
+}
+
+.table-wrap .text-edit{
+  color:#a982ff;
+}
+
+.table-wrap .text-edit:hover{
+  background:rgba(117,73,255,.10);
+  color:#c2abff;
+}
+
+.table-wrap .text-danger{
+  color:#ff6d91;
+}
+
+.table-wrap .text-danger:hover{
+  background:rgba(255,79,123,.09);
+  color:#ff8baa;
+}
+
+.panel.flush{
+  overflow:hidden;
+  border-color:#1d3046;
+  background:linear-gradient(145deg,#0e1928,#0b1523);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+@media (max-width:760px){
+  .table-wrap th,
+  .table-wrap td{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .table-wrap td b{
+    font-size:11px;
+  }
+}
+
+/* =========================================================
+   SMART RETAIL — PHASE 11
+   INVENTORY PAGE
+   SAFE VISUAL PASS — no JSX / data / logic changes.
+   ========================================================= */
+
+/* Inventory action */
+.page-head .ghost{
+  min-height:44px;
+  padding:0 17px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:750;
+}
+
+/* Inventory KPI row */
+.stats.compact{
+  gap:14px;
+  margin-bottom:16px;
+}
+
+.stats.compact .stat{
+  min-height:104px;
+}
+
+/* Inventory table */
+.stats.compact + .panel.flush{
+  overflow:hidden;
+  border-radius:15px;
+  border-color:#1d3046;
+  background:linear-gradient(145deg,#0e1928,#0b1523);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+.stats.compact + .panel.flush .table-wrap{
+  width:100%;
+  overflow-x:auto;
+}
+
+.stats.compact + .panel.flush table{
+  width:100%;
+  min-width:850px;
+  border-collapse:separate;
+  border-spacing:0;
+}
+
+.stats.compact + .panel.flush th{
+  height:48px;
+  padding:0 18px;
+  background:#0b1624;
+  border-bottom:1px solid #203249;
+  color:#71839a;
+  font-size:10px;
+  font-weight:750;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.stats.compact + .panel.flush td{
+  height:66px;
+  padding:13px 18px;
+  background:#0d1928;
+  border-bottom:1px solid #192b40;
+  color:#aebdcd;
+  font-size:12px;
+  vertical-align:middle;
+}
+
+.stats.compact + .panel.flush tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.stats.compact + .panel.flush tbody tr:hover td{
+  background:#101d2c;
+}
+
+.stats.compact + .panel.flush td b{
+  display:block;
+  color:#edf3f8;
+  font-size:13px;
+  font-weight:800;
+}
+
+.stats.compact + .panel.flush td small{
+  display:block;
+  margin-top:4px;
+  color:#657990;
+  font-size:10px;
+}
+
+.stats.compact + .panel.flush td strong{
+  color:#f5f8fb;
+  font-size:14px;
+  font-weight:800;
+}
+
+/* Status badges */
+.stats.compact + .panel.flush .tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:0 11px;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:750;
+}
+
+.stats.compact + .panel.flush .tag.green{
+  border:1px solid rgba(32,223,160,.22);
+  background:rgba(32,223,160,.07);
+  color:#20dfa0;
+}
+
+.stats.compact + .panel.flush .tag.amber{
+  border:1px solid rgba(244,179,61,.24);
+  background:rgba(244,179,61,.07);
+  color:#ffc75a;
+}
+
+.stats.compact + .panel.flush .tag.red{
+  border:1px solid rgba(255,79,123,.24);
+  background:rgba(255,79,123,.07);
+  color:#ff7095;
+}
+
+/* Stock number emphasis */
+.stats.compact + .panel.flush td:nth-child(2) strong{
+  color:#f8fafc;
+  font-size:15px;
+}
+
+/* Mobile */
+@media (max-width:760px){
+  .page-head .ghost{
+    min-height:42px;
+    padding:0 13px;
+    font-size:10px;
+  }
+
+  .stats.compact + .panel.flush table{
+    min-width:760px;
+  }
+
+  .stats.compact + .panel.flush th,
+  .stats.compact + .panel.flush td{
+    padding-left:13px;
+    padding-right:13px;
+  }
+}
+/* PRODUCTS PAGE — FINAL SIZE PATCH */
+
+.page-head .primary{
+  min-height:48px;
+  padding:0 22px;
+  border-radius:11px;
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.table-wrap{
+  width:100%;
+  max-width:none;
+  overflow-x:auto;
+  border-radius:14px;
+}
+
+.table-wrap table{
+  width:100%;
+  min-width:1050px;
+}
+
+.table-wrap th{
+  height:50px;
+  padding:0 18px;
+  font-size:10px;
+  letter-spacing:.7px;
+}
+
+.table-wrap td{
+  height:68px;
+  padding:14px 18px;
+  font-size:12px;
+}
+
+.table-wrap td b{
+  font-size:13px;
+  font-weight:800;
+}
+
+.table-wrap td small{
+  margin-top:5px;
+  font-size:10px;
+}
+
+.table-wrap td strong{
+  font-size:13px;
+}
+
+.table-wrap td code{
+  min-height:30px;
+  padding:0 11px;
+  border-radius:8px;
+  font-size:10px;
+}
+
+.table-wrap .tag{
+  min-height:30px;
+  padding:0 11px;
+  border-radius:8px;
+  font-size:10px;
+}
+
+.table-wrap .text-edit,
+.table-wrap .text-danger{
+  min-height:38px;
+  min-width:78px;
+  justify-content:center;
+  padding:0 13px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.table-wrap .text-edit{
+  background:rgba(72,137,255,.12);
+  border:1px solid rgba(72,137,255,.24);
+}
+
+.table-wrap .text-danger{
+  background:rgba(255,79,123,.10);
+  border:1px solid rgba(255,79,123,.24);
+}
+
+.table-wrap td:last-child{
+  white-space:nowrap;
+}
+
+.panel.flush{
+  width:100%;
+}
+
+@media (max-width:900px){
+  .page-head .primary{
+    min-height:44px;
+    padding:0 17px;
+    font-size:11px;
+  }
+
+  .table-wrap table{
+    min-width:980px;
+  }
+
+  .table-wrap th{
+    padding:0 14px;
+  }
+
+  .table-wrap td{
+    padding:12px 14px;
+  }
+
+  .table-wrap .text-edit,
+  .table-wrap .text-danger{
+    min-height:36px;
+    min-width:72px;
+  }
+}
+/* =========================================================
+   SMART RETAIL — PHASE 12
+   STOCK ORDERS / PROCUREMENT
+   SAFE VISUAL-ONLY PASS
+   Existing JSX, database logic and actions unchanged.
+   ========================================================= */
+
+/* ---------- Procurement summary ---------- */
+
+.order-summary{
+  gap:15px;
+  margin-bottom:17px;
+}
+
+.order-summary>div{
+  position:relative;
+  overflow:hidden;
+  min-height:94px;
+  padding:17px 18px;
+
+  border:1px solid #1d2c40;
+  border-radius:13px;
+
+  background:linear-gradient(145deg,#0f1927,#0c1521);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.015);
+
+  transition:
+    transform .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease;
+}
+
+.order-summary>div::after{
+  content:"";
+  position:absolute;
+  right:-28px;
+  top:-30px;
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  background:rgba(124,77,255,.08);
+  pointer-events:none;
+}
+
+.order-summary>div:nth-child(2)::after{
+  background:rgba(41,156,255,.07);
+}
+
+.order-summary>div:nth-child(3)::after{
+  background:rgba(25,223,152,.07);
+}
+
+.order-summary>div:hover{
+  transform:translateY(-2px);
+  border-color:#30425a;
+  box-shadow:
+    0 13px 30px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+.order-summary span,
+.order-summary b{
+  position:relative;
+  z-index:1;
+  display:block;
+}
+
+.order-summary span{
+  color:#7b8da3;
+  font-size:9px;
+  font-weight:650;
+  letter-spacing:.15px;
+}
+
+.order-summary b{
+  margin-top:7px;
+  color:#f6f8fb;
+  font:800 25px/1 Manrope,sans-serif;
+  letter-spacing:-.4px;
+}
+
+/* ---------- Procurement panels ---------- */
+
+.order-summary + .panel{
+  overflow:hidden;
+}
+
+.order-summary + .panel + .panel{
+  overflow:hidden;
+}
+
+/* Flush procurement tables */
+.order-summary + .panel.flush,
+.order-summary + .panel + .panel.flush{
+  padding:0;
+  border-radius:14px;
+  border-color:#1d2c40;
+  background:linear-gradient(145deg,#0d1623,#0b1522);
+}
+
+.order-summary + .panel.flush .table-wrap,
+.order-summary + .panel + .panel.flush .table-wrap{
+  width:100%;
+  overflow-x:auto;
+}
+
+.order-summary + .panel.flush table,
+.order-summary + .panel + .panel.flush table{
+  min-width:820px;
+}
+
+/* Table header */
+.order-summary + .panel.flush th,
+.order-summary + .panel + .panel.flush th{
+  height:49px;
+  padding:0 18px;
+  background:#0b1624;
+  border-bottom:1px solid #203249;
+  color:#71839a;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.65px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+/* Table rows */
+.order-summary + .panel.flush td,
+.order-summary + .panel + .panel.flush td{
+  height:67px;
+  padding:13px 18px;
+  background:#0d1928;
+  border-bottom:1px solid #192b40;
+  color:#aebdcd;
+  font-size:11px;
+  vertical-align:middle;
+}
+
+.order-summary + .panel.flush tbody tr:hover td,
+.order-summary + .panel + .panel.flush tbody tr:hover td{
+  background:#101d2c;
+}
+
+.order-summary + .panel.flush tbody tr:last-child td,
+.order-summary + .panel + .panel.flush tbody tr:last-child td{
+  border-bottom:0;
+}
+
+/* Product / order identity */
+.order-summary + .panel.flush td b,
+.order-summary + .panel + .panel.flush td b{
+  color:#edf3f8;
+  font-size:12px;
+  font-weight:750;
+}
+
+.order-summary + .panel.flush td small,
+.order-summary + .panel + .panel.flush td small{
+  display:block;
+  margin-top:4px;
+  color:#667990;
+  font-size:9px;
+}
+
+/* Numeric columns */
+.order-summary + .panel.flush td strong,
+.order-summary + .panel + .panel.flush td strong{
+  color:#f6f8fb;
+  font-size:13px;
+  font-weight:800;
+}
+
+/* Product procurement: incoming quantity */
+.order-summary + .panel.flush td:nth-child(4) b{
+  color:#8e7cff;
+}
+
+/* Received quantity */
+.order-summary + .panel.flush td:nth-child(5){
+  color:#39dfa2;
+  font-weight:750;
+}
+
+/* Purchase order action */
+.order-summary + .panel + .panel.flush .small-action{
+  min-height:34px;
+  padding:0 11px;
+  gap:6px;
+
+  border:1px solid #2b3d55;
+  border-radius:8px;
+
+  background:#121e2e;
+  color:#cbd7e4;
+
+  font-size:9px;
+  font-weight:750;
+}
+
+.order-summary + .panel + .panel.flush .small-action:hover{
+  border-color:#5d48b8;
+  background:#1a2639;
+  color:#fff;
+  box-shadow:0 5px 16px rgba(124,77,255,.12);
+}
+
+/* Status badges */
+.order-summary + .panel.flush .tag,
+.order-summary + .panel + .panel.flush .tag{
+  min-height:29px;
+  padding:0 10px;
+  border-radius:8px;
+  font-size:9px;
+  font-weight:800;
+}
+
+.order-summary + .panel.flush .tag.green,
+.order-summary + .panel + .panel.flush .tag.green{
+  background:rgba(25,223,152,.07);
+  border-color:rgba(25,223,152,.20);
+  color:#27e3a0;
+}
+
+.order-summary + .panel.flush .tag.amber,
+.order-summary + .panel + .panel.flush .tag.amber{
+  background:rgba(246,173,50,.07);
+  border-color:rgba(246,173,50,.20);
+  color:#ffc65b;
+}
+
+.order-summary + .panel.flush .tag.red,
+.order-summary + .panel + .panel.flush .tag.red{
+  background:rgba(255,71,119,.07);
+  border-color:rgba(255,71,119,.20);
+  color:#ff7196;
+}
+
+/* ---------- Receive Stock modal ---------- */
+
+.order-summary .order-summary{
+  margin-bottom:0;
+}
+
+.order-summary .order-summary>div{
+  min-height:84px;
+  padding:14px;
+}
+
+.order-summary .order-summary b{
+  margin-top:6px;
+  font-size:18px;
+}
+
+.order-summary .order-summary>div:nth-child(1){
+  background:linear-gradient(145deg,rgba(124,77,255,.10),#0d1724);
+}
+
+.order-summary .order-summary>div:nth-child(2){
+  background:linear-gradient(145deg,rgba(41,156,255,.08),#0d1724);
+}
+
+.order-summary .order-summary>div:nth-child(3){
+  background:linear-gradient(145deg,rgba(246,173,50,.08),#0d1724);
+}
+
+.order-summary .order-summary>div:nth-child(4){
+  background:linear-gradient(145deg,rgba(25,223,152,.08),#0d1724);
+}
+
+@media(max-width:900px){
+  .order-summary{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .order-summary + .panel.flush table,
+  .order-summary + .panel + .panel.flush table{
+    min-width:760px;
+  }
+}
+
+@media(max-width:620px){
+  .order-summary{
+    grid-template-columns:1fr;
+  }
+
+  .order-summary>div{
+    min-height:88px;
+  }
+}
+
+/* =========================================================
+   STOCK ORDERS — BIGGER + WIDER UI
+   ========================================================= */
+
+/* Stock Orders content ko wide karo */
+main .content:has(.order-summary) {
+  width: 100%;
+  max-width: none;
+  padding-right: 28px;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+main .content:has(.order-summary) .page-head h1 {
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+main .content:has(.order-summary) .page-head p {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+main .content:has(.order-summary) .order-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 24px 0 18px;
+}
+
+main .content:has(.order-summary) .order-summary > div {
+  min-height: 110px;
+  padding: 20px 24px;
+  border-radius: 14px;
+}
+
+main .content:has(.order-summary) .order-summary span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+main .content:has(.order-summary) .order-summary b {
+  display: block;
+  font-size: 34px;
+  line-height: 1;
+  margin-top: 10px;
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   STOCK ORDER PANELS
+   ========================================================= */
+
+main .content:has(.order-summary) .order-summary ~ .panel {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+main .content:has(.order-summary) .order-summary ~ .panel .panel-head {
+  padding: 20px 22px;
+}
+
+main .content:has(.order-summary) .order-summary ~ .panel .panel-head h3 {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+main .content:has(.order-summary) .order-summary ~ .panel .panel-head p {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   WIDE TABLE
+   ========================================================= */
+
+main .content:has(.order-summary) .table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+main .content:has(.order-summary) table {
+  width: 100%;
+  min-width: 1050px;
+  table-layout: auto;
+}
+
+
+/* TABLE HEADER */
+
+main .content:has(.order-summary) table thead th {
+  height: 54px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+
+
+/* TABLE ROWS */
+
+main .content:has(.order-summary) table tbody tr {
+  height: 68px;
+}
+
+main .content:has(.order-summary) table tbody td {
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+
+/* PRODUCT NAME */
+
+main .content:has(.order-summary) table tbody td b {
+  font-size: 15px;
+  font-weight: 750;
+}
+
+
+/* NUMBERS */
+
+main .content:has(.order-summary) table tbody td:nth-child(2),
+main .content:has(.order-summary) table tbody td:nth-child(3),
+main .content:has(.order-summary) table tbody td:nth-child(4),
+main .content:has(.order-summary) table tbody td:nth-child(5) {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+main .content:has(.order-summary) .tag {
+  font-size: 12px;
+  padding: 7px 12px;
+  min-height: 32px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+main .content:has(.order-summary) .small-action {
+  min-height: 40px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+
+/* NEW ORDER BUTTON */
+
+main .content:has(.order-summary) .primary {
+  min-height: 46px;
+  padding: 11px 20px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   EXTRA TABLE WIDTH
+   ========================================================= */
+
+/* Product Procurement */
+main .content:has(.order-summary) .panel:first-of-type table {
+  min-width: 1100px;
+}
+
+/* Purchase Orders */
+main .content:has(.order-summary) .panel:nth-of-type(2) table {
+  min-width: 1200px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  main .content:has(.order-summary) .order-summary {
+    grid-template-columns: 1fr;
+  }
+
+  main .content:has(.order-summary) table {
+    min-width: 1000px;
+  }
+}
+/* =========================================================
+   STOCK ORDERS — FINAL TYPOGRAPHY SCALE
+   Product names + numbers bigger
+   Layout dimensions stay unchanged
+   ========================================================= */
+
+/* ---------- PAGE TITLE ---------- */
+
+main .content:has(.order-summary) .page-head h1 {
+  font-size: 38px;
+  font-weight: 800;
+}
+
+
+/* ---------- SUMMARY NUMBERS ---------- */
+
+main .content:has(.order-summary) .order-summary > div b {
+  font-size: 34px !important;
+  line-height: 1.05;
+  font-weight: 850;
+}
+
+main .content:has(.order-summary) .order-summary > div span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+main .content:has(.order-summary) table thead th {
+  font-size: 12px !important;
+  font-weight: 800;
+  letter-spacing: .45px;
+}
+
+
+/* =========================================================
+   PRODUCT NAMES
+   ========================================================= */
+
+/* Main product name */
+main .content:has(.order-summary) table tbody td:first-child b {
+  display: block;
+  font-size: 16px !important;
+  line-height: 1.25;
+  font-weight: 750;
+}
+
+
+/* Category below product */
+main .content:has(.order-summary) table tbody td:first-child small {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px !important;
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   TABLE NUMBERS
+   ========================================================= */
+
+/* Current Stock */
+main .content:has(.order-summary) table tbody td:nth-child(2) {
+  font-size: 17px !important;
+  font-weight: 750;
+}
+
+
+/* Minimum */
+main .content:has(.order-summary) table tbody td:nth-child(3) {
+  font-size: 17px !important;
+  font-weight: 750;
+}
+
+
+/* On Order */
+main .content:has(.order-summary) table tbody td:nth-child(4) {
+  font-size: 17px !important;
+  font-weight: 800;
+}
+
+
+/* Received */
+main .content:has(.order-summary) table tbody td:nth-child(5) {
+  font-size: 17px !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLE ROW HEIGHT
+   ========================================================= */
+
+main .content:has(.order-summary) table tbody tr {
+  height: 70px;
+}
+
+main .content:has(.order-summary) table tbody td {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+main .content:has(.order-summary) table .tag {
+  font-size: 12px !important;
+  font-weight: 800;
+  padding: 7px 12px;
+  min-height: 32px;
+}
+
+
+/* =========================================================
+   PANEL TITLE
+   ========================================================= */
+
+main .content:has(.order-summary) .panel-head h3 {
+  font-size: 21px !important;
+  font-weight: 800;
+}
+
+main .content:has(.order-summary) .panel-head p {
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   PURCHASE ORDER TABLE ALSO
+   ========================================================= */
+
+main .content:has(.order-summary) .panel table tbody td {
+  font-size: 15px;
+}
+
+main .content:has(.order-summary) .panel table tbody td b,
+main .content:has(.order-summary) .panel table tbody td strong {
+  font-size: 16px !important;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   BUTTON TEXT
+   ========================================================= */
+
+main .content:has(.order-summary) .small-action {
+  font-size: 13px !important;
+  font-weight: 750;
+}
+
+main .content:has(.order-summary) .primary {
+  font-size: 14px !important;
+  font-weight: 800;
+}
+/* =========================================================
+   PRODUCTS + INVENTORY
+   MATCH STOCK ORDERS DIMENSIONS
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE WIDTH
+   ========================================================= */
+
+main .content {
+  width: 100%;
+}
+
+
+/* =========================================================
+   PRODUCTS PAGE
+   ========================================================= */
+
+/* Product table full width */
+main .content:has(table) .table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Product table */
+main .content table {
+  width: 100%;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+main .content table thead th {
+  height: 54px;
+  padding: 0 20px;
+
+  font-size: 12px !important;
+  font-weight: 800;
+
+  letter-spacing: .45px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE ROWS
+   ========================================================= */
+
+main .content table tbody tr {
+  height: 70px;
+}
+
+main .content table tbody td {
+  padding: 14px 20px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PRODUCT NAMES
+   ========================================================= */
+
+main .content table tbody td:first-child b {
+  display: block;
+
+  font-size: 16px !important;
+  line-height: 1.25;
+
+  font-weight: 750;
+}
+
+
+/* Small information under product name */
+
+main .content table tbody td:first-child small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 11px !important;
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   NUMBERS
+   ========================================================= */
+
+main .content table tbody td strong {
+  font-size: 17px !important;
+  font-weight: 750;
+}
+
+
+/* Normal numeric columns */
+
+main .content table tbody td:nth-child(2),
+main .content table tbody td:nth-child(3),
+main .content table tbody td:nth-child(4),
+main .content table tbody td:nth-child(5) {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+main .content table .tag {
+  min-height: 32px;
+
+  padding: 7px 12px;
+
+  border-radius: 8px;
+
+  font-size: 12px !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PRODUCTS TABLE — MORE WIDTH
+   ========================================================= */
+
+main .content table {
+  min-width: 1000px;
+}
+
+
+/* =========================================================
+   INVENTORY TABLE
+   ========================================================= */
+
+main .content .panel table {
+  min-width: 1000px;
+}
+
+
+/* Inventory current stock */
+main .content .panel table tbody td strong {
+  font-size: 17px !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PANEL TITLES
+   ========================================================= */
+
+main .content .panel-head h3 {
+  font-size: 21px !important;
+  font-weight: 800;
+}
+
+main .content .panel-head p {
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+main .content .link {
+  font-size: 13px;
+  font-weight: 750;
+}
+
+main .content .text-edit,
+main .content .text-danger {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PAGE HEAD
+   ========================================================= */
+
+main .content .page-head h1 {
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+main .content .page-head p {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   INVENTORY / PRODUCTS STATS
+   ========================================================= */
+
+main .content .stats .stat {
+  min-height: 110px;
+  padding: 20px 24px;
+}
+
+main .content .stats .stat-value,
+main .content .stats .stat strong {
+  font-size: 32px !important;
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  main .content table {
+    min-width: 900px;
+  }
+
+  main .content .page-head h1 {
+    font-size: 32px;
+  }
+
+  main .content table tbody td {
+    font-size: 14px;
+  }
+}
+/* =========================================================
+   PRODUCTS + INVENTORY
+   MATCH STOCK ORDERS HORIZONTAL DIMENSIONS
+   REMOVE EXTRA SIDE GAPS
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   PRODUCTS PAGE
+   --------------------------------------------------------- */
+
+main .content:has(.text-edit) {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* Products page head */
+main .content:has(.text-edit) .page-head {
+  width: 100%;
+}
+
+
+/* Products panel */
+main .content:has(.text-edit) .panel {
+  width: 100% !important;
+}
+
+
+/* Products table */
+main .content:has(.text-edit) .table-wrap {
+  width: 100% !important;
+}
+
+main .content:has(.text-edit) table {
+  width: 100% !important;
+  min-width: 1100px;
+}
+
+
+/* ---------------------------------------------------------
+   INVENTORY PAGE
+   --------------------------------------------------------- */
+
+main .content:has(.ghost) {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* Inventory page head */
+main .content:has(.ghost) .page-head {
+  width: 100%;
+}
+
+
+/* Inventory panels */
+main .content:has(.ghost) .panel {
+  width: 100% !important;
+}
+
+
+/* Inventory tables */
+main .content:has(.ghost) .table-wrap {
+  width: 100% !important;
+}
+
+main .content:has(.ghost) table {
+  width: 100% !important;
+  min-width: 1100px;
+}
+
+
+/* ---------------------------------------------------------
+   SAME HORIZONTAL SPACING AS STOCK ORDERS
+   --------------------------------------------------------- */
+
+main .content:has(.text-edit),
+main .content:has(.ghost) {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+
+/* ---------------------------------------------------------
+   KEEP TABLE FROM LOOKING COMPRESSED
+   --------------------------------------------------------- */
+
+main .content:has(.text-edit) table tbody td,
+main .content:has(.ghost) table tbody td {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   SAME PANEL EDGE ALIGNMENT
+   --------------------------------------------------------- */
+
+main .content:has(.text-edit) .panel,
+main .content:has(.ghost) .panel {
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   LARGE SCREEN
+   --------------------------------------------------------- */
+
+@media (min-width: 1400px) {
+
+  main .content:has(.text-edit),
+  main .content:has(.ghost) {
+    width: 100% !important;
+  }
+
+  main .content:has(.text-edit) table,
+  main .content:has(.ghost) table {
+    width: 100% !important;
+  }
+}
+/* =========================================================
+   DASHBOARD + LIVE STORE
+   MATCH STOCK ORDERS DIMENSIONS
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   DASHBOARD — FULL AVAILABLE WIDTH
+   --------------------------------------------------------- */
+
+main .content:has(.dashboard-grid) {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+
+  box-sizing: border-box;
+}
+
+
+/* Dashboard page header */
+main .content:has(.dashboard-grid) .page-head {
+  width: 100% !important;
+}
+
+
+/* Dashboard KPI cards */
+main .content:has(.dashboard-grid) .stats {
+  width: 100% !important;
+}
+
+
+/* Dashboard main grid */
+main .content:has(.dashboard-grid) .dashboard-grid {
+  width: 100% !important;
+}
+
+
+/* Dashboard panels */
+main .content:has(.dashboard-grid) .dashboard-grid .panel {
+  width: 100%;
+}
+
+
+/* Live trolley activity panel */
+main .content:has(.dashboard-grid) > .panel {
+  width: 100% !important;
+}
+
+
+/* ---------------------------------------------------------
+   LIVE STORE — FULL AVAILABLE WIDTH
+   --------------------------------------------------------- */
+
+main .content:has(.live-grid) {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+
+  box-sizing: border-box;
+}
+
+
+/* Live Store header */
+main .content:has(.live-grid) .page-head {
+  width: 100% !important;
+}
+
+
+/* Live Store KPI cards */
+main .content:has(.live-grid) .stats {
+  width: 100% !important;
+}
+
+
+/* Live Store two-column area */
+main .content:has(.live-grid) .live-grid {
+  width: 100% !important;
+}
+
+
+/* Panels inside Live Store */
+main .content:has(.live-grid) .live-grid > .panel {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   SAME PANEL WIDTH / ALIGNMENT
+   --------------------------------------------------------- */
+
+main .content:has(.dashboard-grid) .panel,
+main .content:has(.live-grid) .panel {
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   SAME PAGE HEADING POSITION
+   --------------------------------------------------------- */
+
+main .content:has(.dashboard-grid) .page-head,
+main .content:has(.live-grid) .page-head {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   SAME KPI WIDTH
+   --------------------------------------------------------- */
+
+main .content:has(.dashboard-grid) .stats,
+main .content:has(.live-grid) .stats {
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   LARGE SCREENS
+   --------------------------------------------------------- */
+
+@media (min-width: 1400px) {
+
+  main .content:has(.dashboard-grid),
+  main .content:has(.live-grid) {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL SCREENS
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  main .content:has(.dashboard-grid),
+  main .content:has(.live-grid) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+/* =========================================================
+   TRANSACTIONS — FINAL TABLE DIMENSIONS
+   Match Products / Inventory / Stock Orders
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE WIDTH
+   ========================================================= */
+
+main .content:has(.panel table) {
+  box-sizing: border-box;
+}
+
+
+/* Transactions table container */
+main .content:has(.panel table) .table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+main .content:has(.panel table) table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+main .content:has(.panel table) table thead th {
+  height: 54px;
+  padding: 0 20px;
+
+  font-size: 12px !important;
+  font-weight: 800;
+
+  letter-spacing: .45px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ROWS
+   ========================================================= */
+
+main .content:has(.panel table) table tbody tr {
+  height: 70px;
+}
+
+
+main .content:has(.panel table) table tbody td {
+  padding: 14px 20px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TRANSACTION ID
+   ========================================================= */
+
+main .content:has(.panel table) table tbody td:first-child {
+  min-width: 360px;
+}
+
+
+main .content:has(.panel table) table tbody td:first-child {
+  font-size: 14px !important;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+main .content:has(.panel table) table tbody td:nth-child(2) {
+  min-width: 120px;
+
+  font-size: 15px !important;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ITEMS
+   ========================================================= */
+
+main .content:has(.panel table) table tbody td:nth-child(3) {
+  min-width: 90px;
+
+  font-size: 16px !important;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   TOTAL — MORE PROMINENT
+   ========================================================= */
+
+main .content:has(.panel table) table tbody td:nth-child(4) {
+  min-width: 130px;
+
+  font-size: 17px !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+main .content:has(.panel table) table tbody td:nth-child(5) {
+  min-width: 100px;
+
+  font-size: 15px !important;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+main .content:has(.panel table) table tbody td:nth-child(6) {
+  min-width: 130px;
+}
+
+
+main .content:has(.panel table) .tag {
+  min-height: 32px;
+
+  padding: 7px 12px;
+
+  border-radius: 8px;
+
+  font-size: 12px !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PANEL
+   ========================================================= */
+
+main .content:has(.panel table) .panel {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+main .content:has(.panel table) .panel-head {
+  padding: 20px 22px;
+}
+
+
+main .content:has(.panel table) .panel-head h3 {
+  font-size: 21px !important;
+  font-weight: 800;
+}
+
+
+main .content:has(.panel table) .panel-head p {
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+main .content:has(.panel table) .page-head h1 {
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+
+main .content:has(.panel table) .page-head p {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  main .content:has(.panel table) table {
+    min-width: 1000px;
+  }
+
+  main .content:has(.panel table) table tbody td:first-child {
+    min-width: 300px;
+  }
+}
+/* =========================================================
+   TRANSACTIONS — FINAL READABILITY PASS
+   Bigger text + balanced column sizing
+   ========================================================= */
+
+/* Main transaction table */
+main .content table {
+  width: 100% !important;
+  min-width: 1180px !important;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
+
+main .content table thead th {
+  height: 58px !important;
+  padding: 0 22px !important;
+
+  font-size: 13px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: .55px;
+}
+
+
+/* ---------------------------------------------------------
+   ROW SIZE
+   --------------------------------------------------------- */
+
+main .content table tbody tr {
+  height: 76px !important;
+}
+
+
+main .content table tbody td {
+  padding: 16px 22px !important;
+
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+
+/* ---------------------------------------------------------
+   TRANSACTION ID
+   --------------------------------------------------------- */
+
+main .content table tbody td:first-child {
+  min-width: 410px !important;
+
+  font-size: 15px !important;
+  font-weight: 750 !important;
+
+  letter-spacing: .05px;
+}
+
+
+/* ---------------------------------------------------------
+   CART
+   --------------------------------------------------------- */
+
+main .content table tbody td:nth-child(2) {
+  min-width: 130px !important;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+
+/* ---------------------------------------------------------
+   ITEMS
+   --------------------------------------------------------- */
+
+main .content table tbody td:nth-child(3) {
+  min-width: 100px !important;
+
+  font-size: 17px !important;
+  font-weight: 800 !important;
+}
+
+
+/* ---------------------------------------------------------
+   TOTAL
+   --------------------------------------------------------- */
+
+main .content table tbody td:nth-child(4) {
+  min-width: 140px !important;
+
+  font-size: 18px !important;
+  font-weight: 850 !important;
+}
+
+
+/* ---------------------------------------------------------
+   TIME
+   --------------------------------------------------------- */
+
+main .content table tbody td:nth-child(5) {
+  min-width: 110px !important;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+
+/* ---------------------------------------------------------
+   STATUS
+   --------------------------------------------------------- */
+
+main .content table tbody td:nth-child(6) {
+  min-width: 145px !important;
+}
+
+
+main .content table .tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 34px !important;
+
+  padding: 7px 14px !important;
+
+  font-size: 13px !important;
+  font-weight: 800 !important;
+
+  border-radius: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   PANEL
+   --------------------------------------------------------- */
+
+main .content .panel {
+  width: 100% !important;
+}
+
+main .content .table-wrap {
+  width: 100% !important;
+}
+
+
+/* ---------------------------------------------------------
+   TRANSACTIONS PAGE TITLE
+   --------------------------------------------------------- */
+
+main .content .page-head h1 {
+  font-size: 38px !important;
+  font-weight: 800 !important;
+}
+
+main .content .page-head p {
+  font-size: 15px !important;
+}
+
+
+/* ---------------------------------------------------------
+   BETTER COLUMN PROPORTION
+   --------------------------------------------------------- */
+
+main .content table th:first-child {
+  min-width: 410px;
+}
+
+main .content table th:nth-child(2) {
+  min-width: 130px;
+}
+
+main .content table th:nth-child(3) {
+  min-width: 100px;
+}
+
+main .content table th:nth-child(4) {
+  min-width: 140px;
+}
+
+main .content table th:nth-child(5) {
+  min-width: 110px;
+}
+
+main .content table th:nth-child(6) {
+  min-width: 145px;
+}
+/* =========================================================
+   TRANSACTIONS — MATCH STOCK ORDERS
+   ========================================================= */
+
+main .content:has(.transactions-page) {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+
+  box-sizing: border-box;
+}
+
+
+/* Page heading */
+main .content:has(.transactions-page) .page-head {
+  width: 100%;
+}
+
+
+/* Main panel */
+main .content:has(.transactions-page) .panel {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+
+/* Table wrapper */
+main .content:has(.transactions-page) .table-wrap {
+  width: 100% !important;
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE WIDTH
+   ========================================================= */
+
+main .content:has(.transactions-page) table {
+  width: 100% !important;
+  min-width: 1180px !important;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+main .content:has(.transactions-page) thead th {
+  height: 54px;
+
+  padding: 0 20px;
+
+  font-size: 12px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   ROWS
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody tr {
+  height: 70px;
+}
+
+
+main .content:has(.transactions-page) tbody td {
+  padding: 14px 20px;
+
+  font-size: 16px !important;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TRANSACTION ID
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody td:nth-child(1) {
+  min-width: 390px;
+
+  font-size: 15px !important;
+  font-weight: 750 !important;
+}
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody td:nth-child(2) {
+  min-width: 150px;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   ITEMS
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody td:nth-child(3) {
+  min-width: 110px;
+
+  font-size: 17px !important;
+  font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   TOTAL
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody td:nth-child(4) {
+  min-width: 150px;
+
+  font-size: 18px !important;
+  font-weight: 850 !important;
+}
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody td:nth-child(5) {
+  min-width: 120px;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+main .content:has(.transactions-page) tbody td:nth-child(6) {
+  min-width: 150px;
+}
+
+
+main .content:has(.transactions-page) .tag {
+  min-height: 32px;
+
+  padding: 7px 13px;
+
+  font-size: 12px !important;
+  font-weight: 800 !important;
+
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+main .content:has(.transactions-page) .page-head h1 {
+  font-size: 38px !important;
+  font-weight: 800 !important;
+}
+
+main .content:has(.transactions-page) .page-head p {
+  font-size: 15px !important;
+}
+/* =========================================================
+   PHASE 14 — RETAIL GUARDIAN
+   Same dimensions as Stock Orders / Transactions
+   UI ONLY — NO LOGIC CHANGE
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE WIDTH
+   ========================================================= */
+
+main .content:has(.stats.compact) {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+main .content:has(.stats.compact) .page-head h1 {
+  font-size: 38px !important;
+  line-height: 1.1;
+  font-weight: 800 !important;
+}
+
+main .content:has(.stats.compact) .page-head p {
+  font-size: 15px !important;
+}
+
+
+/* =========================================================
+   KPI CARDS
+   ========================================================= */
+
+main .content:has(.stats.compact) .stats {
+  width: 100% !important;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-top: 24px;
+}
+
+
+main .content:has(.stats.compact) .stat {
+  min-height: 110px;
+
+  padding: 20px 22px;
+
+  box-sizing: border-box;
+}
+
+
+/* KPI LABEL */
+
+main .content:has(.stats.compact) .stat-label {
+  font-size: 13px !important;
+  font-weight: 650 !important;
+}
+
+
+/* KPI NUMBER */
+
+main .content:has(.stats.compact) .stat-value {
+  font-size: 32px !important;
+  line-height: 1.05;
+
+  font-weight: 850 !important;
+
+  margin-top: 6px;
+}
+
+
+/* KPI META */
+
+main .content:has(.stats.compact) .stat-meta {
+  font-size: 11px !important;
+}
+
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+
+main .content:has(.stats.compact) .stat-icon {
+  width: 52px;
+  height: 52px;
+
+  font-size: 21px;
+}
+
+
+/* =========================================================
+   RECENT VERIFICATION EVENTS PANEL
+   ========================================================= */
+
+main .content:has(.stats.compact) > .panel {
+  width: 100% !important;
+
+  margin-top: 18px;
+
+  box-sizing: border-box;
+}
+
+
+/* Panel heading */
+
+main .content:has(.stats.compact) > .panel .panel-head {
+  padding: 20px 22px;
+}
+
+
+main .content:has(.stats.compact) > .panel .panel-head h3 {
+  font-size: 21px !important;
+  font-weight: 800 !important;
+}
+
+
+main .content:has(.stats.compact) > .panel .panel-head p {
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   GUARDIAN ALERT ROWS
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row {
+  min-height: 76px;
+
+  padding: 16px 22px;
+
+  box-sizing: border-box;
+}
+
+
+/* Alert title */
+
+main .content:has(.stats.compact) .guardian-row strong,
+main .content:has(.stats.compact) .guardian-row b {
+  font-size: 15px !important;
+  font-weight: 750 !important;
+}
+
+
+/* Alert details */
+
+main .content:has(.stats.compact) .guardian-row span {
+  font-size: 13px !important;
+}
+
+
+/* Alert time */
+
+main .content:has(.stats.compact) .guardian-row small {
+  font-size: 12px !important;
+}
+
+
+/* =========================================================
+   ALERT ICON / INDICATOR
+   ========================================================= */
+
+main .content:has(.stats.compact) .warning-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   GENERAL ALERT TEXT
+   ========================================================= */
+
+main .content:has(.stats.compact) .alert-title {
+  font-size: 15px !important;
+  font-weight: 750 !important;
+}
+
+main .content:has(.stats.compact) .alert-detail {
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  main .content:has(.stats.compact) .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main .content:has(.stats.compact) .page-head h1 {
+    font-size: 32px !important;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  main .content:has(.stats.compact) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  main .content:has(.stats.compact) .stats {
+    grid-template-columns: 1fr;
+  }
+
+}
+/* =========================================================
+   RETAIL GUARDIAN — COMPACT ALERT ROWS
+   ========================================================= */
+
+
+/* Main events panel */
+main .content:has(.stats.compact) > .panel {
+  width: 100% !important;
+}
+
+
+/* =========================================================
+   ALERT ROW
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row {
+  display: flex !important;
+  align-items: center !important;
+
+  min-height: 64px !important;
+
+  padding: 10px 22px !important;
+
+  gap: 14px !important;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row > div:first-child {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+
+/* Alert icon */
+
+main .content:has(.stats.compact) .guardian-row .warning-icon {
+  width: 18px !important;
+  height: 18px !important;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ALERT TEXT
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row strong,
+main .content:has(.stats.compact) .guardian-row b {
+  font-size: 15px !important;
+  font-weight: 750 !important;
+
+  white-space: nowrap;
+}
+
+
+/* Detail text */
+
+main .content:has(.stats.compact) .guardian-row span {
+  font-size: 13px !important;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MIDDLE DETAIL / CONTENT
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row > div {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row time,
+main .content:has(.stats.compact) .guardian-row small {
+  margin-left: auto !important;
+
+  flex-shrink: 0;
+
+  font-size: 12px !important;
+  font-weight: 650 !important;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESOLVE BUTTON — ALWAYS LAST
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row button {
+  order: 99 !important;
+
+  flex-shrink: 0;
+
+  min-width: 68px;
+  min-height: 36px;
+
+  padding: 8px 13px !important;
+
+  border-radius: 8px;
+
+  font-size: 12px !important;
+  font-weight: 750 !important;
+}
+
+
+/* =========================================================
+   REDUCE GAP BETWEEN ALERTS
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row + .guardian-row {
+  margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   REMOVE EXTRA INTERNAL VERTICAL SPACE
+   ========================================================= */
+
+main .content:has(.stats.compact) .guardian-row p {
+  margin: 2px 0 0 !important;
+}
+
+main .content:has(.stats.compact) .guardian-row > div {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   DESKTOP — KEEP EVERYTHING ON ONE LINE
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+  main .content:has(.stats.compact) .guardian-row {
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(360px, 1fr)
+      minmax(70px, auto)
+      auto;
+
+    column-gap: 20px;
+  }
+
+  main .content:has(.stats.compact) .guardian-row button {
+    justify-self: end;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 899px) {
+
+  main .content:has(.stats.compact) .guardian-row {
+    flex-wrap: wrap;
+  }
+
+  main .content:has(.stats.compact) .guardian-row small {
+    margin-left: auto !important;
+  }
+}
+/* =========================================================
+   RETAIL GUARDIAN — FINAL CLEAN STYLES
+   ========================================================= */
+
+/* Main alert row */
+.guardian-event{
+  width:100%;
+  min-height:64px;
+
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 100px 100px;
+
+  align-items:center;
+
+  column-gap:24px;
+
+  padding:10px 0;
+
+  border-bottom:1px solid rgba(148,163,184,.10);
+
+  box-sizing:border-box;
+}
+
+.guardian-event:last-child{
+  border-bottom:none;
+}
+
+
+/* =========================================================
+   ALERT INFORMATION
+   ========================================================= */
+
+.guardian-event-info{
+  min-width:0;
+  width:100%;
+  padding-right:12px;
+  box-sizing:border-box;
+}
+
+.guardian-event-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  min-width:0;
+  white-space:nowrap;
+}
+
+.guardian-event-title svg{
+  width:17px;
+  height:17px;
+  flex:none;
+
+  color:#aebbd0;
+}
+
+.guardian-event-title b{
+  color:#edf3f8;
+
+  font-size:13px;
+  line-height:1.2;
+  font-weight:750;
+
+  white-space:nowrap;
+}
+
+.guardian-event-detail{
+  display:block;
+
+  margin-top:4px;
+
+  color:#8fa3bd;
+
+  font-size:9px;
+  line-height:1.35;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.guardian-event-title .tag{
+  flex:none;
+
+  margin-left:2px;
+
+  padding:3px 7px;
+
+  border-radius:6px;
+
+  font-size:8px;
+  line-height:1;
+  font-weight:800;
+}
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+.guardian-event-time{
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  white-space:nowrap;
+}
+
+.guardian-event-time small{
+  color:#91a4bd;
+
+  font-size:9px;
+  font-weight:600;
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   RESOLVE ACTION
+   ========================================================= */
+
+.guardian-event-action{
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+
+  box-sizing:border-box;
+}
+
+.guardian-event-action .primary{
+  width:78px;
+  min-width:78px;
+  height:32px;
+
+  padding:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:9px;
+
+  font-size:9px;
+  font-weight:700;
+}
+
+
+/* Keep resolved rows aligned */
+.guardian-event-placeholder{
+  display:block;
+
+  width:78px;
+  height:32px;
+}
+
+
+/* =========================================================
+   ROW HOVER
+   ========================================================= */
+
+.guardian-event:hover{
+  background:rgba(124,77,255,.025);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:800px){
+
+  .guardian-event{
+    grid-template-columns:minmax(0,1fr) 80px 82px;
+    column-gap:12px;
+  }
+
+  .guardian-event-info{
+    padding-right:5px;
+  }
+
+  .guardian-event-title b{
+    font-size:11px;
+  }
+
+  .guardian-event-detail{
+    font-size:8px;
+  }
+
+  .guardian-event-time small{
+    font-size:8px;
+  }
+
+  .guardian-event-action .primary{
+    width:72px;
+    min-width:72px;
+  }
+
+  .guardian-event-placeholder{
+    width:72px;
+  }
+}
+
+
+@media(max-width:600px){
+
+  .guardian-event{
+    grid-template-columns:1fr auto;
+    row-gap:7px;
+  }
+
+  .guardian-event-info{
+    grid-column:1 / -1;
+  }
+
+  .guardian-event-time{
+    justify-content:flex-start;
+    text-align:left;
+  }
+
+  .guardian-event-action{
+    justify-content:flex-end;
+  }
+}
+/* =========================================================
+   RETAIL GUARDIAN — FINAL EVENT TABLE
+   Info → Time → Resolve
+   ========================================================= */
+
+.guardian-event {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 72px 92px !important;
+  align-items: center !important;
+
+  min-height: 62px !important;
+  padding: 10px 0 !important;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12) !important;
+  column-gap: 18px !important;
+}
+
+.guardian-event:last-child {
+  border-bottom: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEFT — ALERT INFORMATION
+   --------------------------------------------------------- */
+
+.guardian-event-info {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.guardian-event-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+
+  min-height: 22px !important;
+  white-space: nowrap !important;
+}
+
+.guardian-event-title svg {
+  width: 15px !important;
+  height: 15px !important;
+  flex: 0 0 auto !important;
+}
+
+.guardian-event-title b {
+  font-size: 13px !important;
+  line-height: 18px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+.guardian-event-detail {
+  display: block !important;
+
+  margin-top: 2px !important;
+
+  font-size: 10px !important;
+  line-height: 15px !important;
+
+  color: #8fa3bd !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+
+/* ---------------------------------------------------------
+   STATUS TAG
+   --------------------------------------------------------- */
+
+.guardian-event-title .tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  height: 18px !important;
+  min-width: 38px !important;
+
+  padding: 0 7px !important;
+
+  border-radius: 5px !important;
+
+  font-size: 8px !important;
+  line-height: 18px !important;
+  font-weight: 700 !important;
+
+  flex: 0 0 auto !important;
+}
+
+
+/* ---------------------------------------------------------
+   MIDDLE — TIME
+   --------------------------------------------------------- */
+
+.guardian-event-time {
+  width: 72px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  text-align: right !important;
+}
+
+.guardian-event-time small {
+  display: block !important;
+
+  font-size: 10px !important;
+  line-height: 16px !important;
+
+  color: #9db0c9 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT — RESOLVE BUTTON
+   --------------------------------------------------------- */
+
+.guardian-event-action {
+  width: 92px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.guardian-event-action .primary {
+  width: 76px !important;
+  height: 34px !important;
+
+  padding: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 8px !important;
+
+  font-size: 10px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESOLVED ROW — NO EMPTY SPACE
+   --------------------------------------------------------- */
+
+.guardian-event-placeholder {
+  display: block !important;
+  width: 76px !important;
+  height: 34px !important;
+}
+
+
+/* ---------------------------------------------------------
+   PANEL CONTENT — CONTROL OVERALL WIDTH
+   --------------------------------------------------------- */
+
+.panel .guardian-event {
+  width: 100% !important;
+}
+
+
+/* ---------------------------------------------------------
+   GUARDIAN PANEL
+   --------------------------------------------------------- */
+
+.panel:has(.guardian-event) {
+  overflow: hidden !important;
+}
+
+.panel:has(.guardian-event) .guardian-event {
+  box-sizing: border-box !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .guardian-event {
+    grid-template-columns: minmax(0, 1fr) 60px 82px !important;
+    column-gap: 10px !important;
+  }
+
+  .guardian-event-time {
+    width: 60px !important;
+  }
+
+  .guardian-event-action {
+    width: 82px !important;
+  }
+
+  .guardian-event-action .primary,
+  .guardian-event-placeholder {
+    width: 70px !important;
+  }
+
+}
+/* =========================================================
+   AI INSIGHTS — FINAL DIMENSION / SPACING PASS
+   Match Stock Orders page proportions
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   AI TOP SECTION
+   --------------------------------------------------------- */
+
+.ai-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin-bottom: 12px !important;
+}
+
+
+/* ---------------------------------------------------------
+   LEFT — EDGE REPLENISHMENT ENGINE
+   --------------------------------------------------------- */
+
+.ai-hero {
+  min-height: 184px !important;
+  height: 184px !important;
+
+  box-sizing: border-box !important;
+
+  padding: 22px 24px !important;
+
+  border-radius: 10px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.ai-hero > span {
+  font-size: 8px !important;
+  line-height: 12px !important;
+  letter-spacing: 1.2px !important;
+  font-weight: 800 !important;
+}
+
+.ai-hero h2 {
+  max-width: 520px !important;
+
+  margin: 12px 0 7px !important;
+
+  font-size: 19px !important;
+  line-height: 23px !important;
+  font-weight: 750 !important;
+}
+
+.ai-hero p {
+  max-width: 500px !important;
+
+  margin: 0 !important;
+
+  font-size: 9px !important;
+  line-height: 14px !important;
+}
+
+.ai-metric {
+  margin-top: auto !important;
+
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+}
+
+.ai-metric b {
+  font-size: 20px !important;
+  line-height: 24px !important;
+}
+
+.ai-metric span {
+  font-size: 8px !important;
+  line-height: 12px !important;
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT — RECOMMENDED ACTIONS
+   --------------------------------------------------------- */
+
+.ai-grid > .panel {
+  min-height: 184px !important;
+  height: 184px !important;
+
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+.ai-grid > .panel .panel-head {
+  padding: 20px 22px 12px !important;
+}
+
+.ai-grid > .panel .panel-head h3 {
+  font-size: 15px !important;
+  line-height: 20px !important;
+}
+
+.ai-grid > .panel .panel-head p,
+.ai-grid > .panel .panel-head small {
+  font-size: 8px !important;
+}
+
+
+/* Empty recommendation message */
+
+.ai-grid > .panel > div[style*="padding"] {
+  padding: 18px 22px !important;
+}
+
+.ai-grid > .panel > div[style*="padding"] small {
+  font-size: 9px !important;
+}
+
+
+/* ---------------------------------------------------------
+   RECOMMENDATION ROWS
+   --------------------------------------------------------- */
+
+.ai-grid .recommend {
+  min-height: 52px !important;
+
+  padding: 10px 22px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  gap: 16px !important;
+
+  box-sizing: border-box !important;
+}
+
+.ai-grid .recommend > div {
+  min-width: 0 !important;
+}
+
+.ai-grid .recommend b {
+  display: block !important;
+
+  font-size: 11px !important;
+  line-height: 15px !important;
+}
+
+.ai-grid .recommend span {
+  display: block !important;
+
+  font-size: 8px !important;
+  line-height: 12px !important;
+}
+
+.ai-grid .recommend strong {
+  flex: 0 0 auto !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+
+  font-size: 9px !important;
+  line-height: 13px !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------------------------------------------------------
+   STOCK RISK PANEL
+   --------------------------------------------------------- */
+
+.ai-grid + .panel {
+  width: 100% !important;
+  margin-top: 0 !important;
+}
+
+.ai-grid + .panel .panel-head {
+  padding: 20px 22px 14px !important;
+}
+
+.ai-grid + .panel .panel-head h3 {
+  font-size: 15px !important;
+  line-height: 20px !important;
+}
+
+.ai-grid + .panel .panel-head p,
+.ai-grid + .panel .panel-head small {
+  font-size: 8px !important;
+  line-height: 12px !important;
+}
+
+
+/* ---------------------------------------------------------
+   WIDE STOCK RISK TABLE
+   --------------------------------------------------------- */
+
+.ai-grid + .panel .table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+}
+
+.ai-grid + .panel table {
+  width: 100% !important;
+  min-width: 760px !important;
+
+  table-layout: fixed !important;
+
+  border-collapse: collapse !important;
+}
+
+
+/* Column proportions
+   Product gets most space.
+   Numeric columns stay compact and aligned.
+*/
+
+.ai-grid + .panel table th:nth-child(1),
+.ai-grid + .panel table td:nth-child(1) {
+  width: 34% !important;
+  text-align: left !important;
+}
+
+.ai-grid + .panel table th:nth-child(2),
+.ai-grid + .panel table td:nth-child(2) {
+  width: 10% !important;
+  text-align: left !important;
+}
+
+.ai-grid + .panel table th:nth-child(3),
+.ai-grid + .panel table td:nth-child(3) {
+  width: 10% !important;
+  text-align: left !important;
+}
+
+.ai-grid + .panel table th:nth-child(4),
+.ai-grid + .panel table td:nth-child(4) {
+  width: 12% !important;
+  text-align: left !important;
+}
+
+.ai-grid + .panel table th:nth-child(5),
+.ai-grid + .panel table td:nth-child(5) {
+  width: 15% !important;
+  text-align: left !important;
+}
+
+.ai-grid + .panel table th:nth-child(6),
+.ai-grid + .panel table td:nth-child(6) {
+  width: 19% !important;
+  text-align: left !important;
+}
+
+
+/* ---------------------------------------------------------
+   TABLE HEADER
+   --------------------------------------------------------- */
+
+.ai-grid + .panel table th {
+  height: 40px !important;
+
+  padding: 0 16px !important;
+
+  font-size: 8px !important;
+  line-height: 12px !important;
+
+  font-weight: 700 !important;
+  letter-spacing: 0.55px !important;
+  text-transform: uppercase !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------------------------------------------------------
+   TABLE ROWS
+   --------------------------------------------------------- */
+
+.ai-grid + .panel table tbody tr {
+  height: 54px !important;
+}
+
+.ai-grid + .panel table td {
+  height: 54px !important;
+
+  padding: 0 16px !important;
+
+  font-size: 10px !important;
+  line-height: 15px !important;
+
+  vertical-align: middle !important;
+
+  white-space: nowrap !important;
+}
+
+.ai-grid + .panel table td b {
+  font-size: 11px !important;
+  line-height: 16px !important;
+  font-weight: 700 !important;
+}
+
+
+/* Numeric values */
+
+.ai-grid + .panel table td:nth-child(2),
+.ai-grid + .panel table td:nth-child(3),
+.ai-grid + .panel table td:nth-child(4) {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+
+/* Recommended order */
+
+.ai-grid + .panel table td:nth-child(6) {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+
+
+/* ---------------------------------------------------------
+   RISK TAGS
+   --------------------------------------------------------- */
+
+.ai-grid + .panel table .tag {
+  min-height: 22px !important;
+
+  padding: 0 9px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 6px !important;
+
+  font-size: 8px !important;
+  line-height: 12px !important;
+  font-weight: 700 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL AI PAGE WIDTH ALIGNMENT
+   --------------------------------------------------------- */
+
+.content > .ai-grid,
+.content > .ai-grid + .panel {
+  max-width: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .ai-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ai-hero,
+  .ai-grid > .panel {
+    height: auto !important;
+    min-height: 184px !important;
+  }
+
+  .ai-grid + .panel table {
+    min-width: 760px !important;
+  }
+}
+/* =========================================================
+   AI INSIGHTS — STOCK ORDERS DIMENSION MATCH
+   FINAL DESKTOP UI
+   ========================================================= */
+
+
+/* =========================================================
+   1. FULL PAGE WIDTH
+   ========================================================= */
+
+main .content:has(.ai-grid) {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 30px !important;
+  padding-right: 28px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   2. PAGE HEADER
+   ========================================================= */
+
+main .content:has(.ai-grid) .page-head {
+  width: 100% !important;
+  margin-bottom: 26px !important;
+}
+
+main .content:has(.ai-grid) .page-head h1 {
+  font-size: 38px !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+}
+
+main .content:has(.ai-grid) .page-head p {
+  margin-top: 8px !important;
+
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   3. TOP AI GRID
+   ========================================================= */
+
+main .content:has(.ai-grid) .ai-grid {
+  width: 100% !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr) !important;
+
+  gap: 12px !important;
+
+  margin-bottom: 12px !important;
+}
+
+
+/* =========================================================
+   4. AI HERO CARD
+   ========================================================= */
+
+main .content:has(.ai-grid) .ai-hero {
+  width: 100% !important;
+
+  min-height: 184px !important;
+  height: 184px !important;
+
+  box-sizing: border-box !important;
+
+  padding: 23px 24px !important;
+
+  border-radius: 10px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+
+/* Small purple label */
+
+main .content:has(.ai-grid) .ai-hero > span {
+  font-size: 9px !important;
+  line-height: 12px !important;
+
+  letter-spacing: 1.1px !important;
+
+  font-weight: 800 !important;
+}
+
+
+/* Main hero heading */
+
+main .content:has(.ai-grid) .ai-hero h2 {
+  max-width: 620px !important;
+
+  margin-top: 13px !important;
+  margin-bottom: 8px !important;
+
+  font-size: 22px !important;
+  line-height: 27px !important;
+
+  font-weight: 800 !important;
+}
+
+
+/* Hero description */
+
+main .content:has(.ai-grid) .ai-hero p {
+  max-width: 610px !important;
+
+  margin: 0 !important;
+
+  font-size: 10px !important;
+  line-height: 15px !important;
+}
+
+
+/* Hero metric */
+
+main .content:has(.ai-grid) .ai-metric {
+  margin-top: auto !important;
+
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: baseline !important;
+
+  gap: 9px !important;
+}
+
+main .content:has(.ai-grid) .ai-metric b {
+  font-size: 23px !important;
+  line-height: 28px !important;
+
+  font-weight: 800 !important;
+}
+
+main .content:has(.ai-grid) .ai-metric span {
+  font-size: 9px !important;
+  line-height: 13px !important;
+}
+
+
+/* =========================================================
+   5. RECOMMENDED ACTIONS
+   ========================================================= */
+
+main .content:has(.ai-grid) .ai-grid > .panel {
+  width: 100% !important;
+
+  min-height: 184px !important;
+  height: 184px !important;
+
+  margin-bottom: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* Panel heading */
+
+main .content:has(.ai-grid) .ai-grid > .panel .panel-head {
+  padding: 20px 22px 13px !important;
+
+  margin-bottom: 0 !important;
+}
+
+main .content:has(.ai-grid) .ai-grid > .panel .panel-head h3 {
+  font-size: 16px !important;
+  line-height: 21px !important;
+
+  font-weight: 750 !important;
+}
+
+main .content:has(.ai-grid) .ai-grid > .panel .panel-head p {
+  margin-top: 4px !important;
+
+  font-size: 10px !important;
+  line-height: 14px !important;
+}
+
+
+/* Empty state */
+
+main .content:has(.ai-grid)
+.ai-grid > .panel
+> div[style*="padding"] {
+  padding: 20px 22px !important;
+}
+
+main .content:has(.ai-grid)
+.ai-grid > .panel
+> div[style*="padding"] small {
+  font-size: 10px !important;
+}
+
+
+/* =========================================================
+   6. RECOMMENDED ACTION ROWS
+   ========================================================= */
+
+main .content:has(.ai-grid) .recommend {
+  min-height: 58px !important;
+
+  padding: 11px 22px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  gap: 20px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+main .content:has(.ai-grid) .recommend > div {
+  min-width: 0 !important;
+}
+
+
+main .content:has(.ai-grid) .recommend b {
+  display: block !important;
+
+  font-size: 12px !important;
+  line-height: 16px !important;
+
+  font-weight: 750 !important;
+}
+
+
+main .content:has(.ai-grid) .recommend span {
+  display: block !important;
+
+  font-size: 9px !important;
+  line-height: 13px !important;
+}
+
+
+main .content:has(.ai-grid) .recommend strong {
+  flex: 0 0 auto !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+
+  gap: 5px !important;
+
+  font-size: 10px !important;
+  line-height: 14px !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   7. ALL AI PANELS FULL WIDTH
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel {
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin-bottom: 12px !important;
+}
+
+
+/* =========================================================
+   8. STOCK RISK PANEL
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel .panel-head {
+  padding: 21px 22px 15px !important;
+
+  margin-bottom: 0 !important;
+}
+
+
+main .content:has(.ai-grid) > .panel .panel-head h3 {
+  font-size: 16px !important;
+  line-height: 21px !important;
+
+  font-weight: 750 !important;
+}
+
+
+main .content:has(.ai-grid) > .panel .panel-head p {
+  margin-top: 4px !important;
+
+  font-size: 10px !important;
+  line-height: 14px !important;
+}
+
+
+/* =========================================================
+   9. AI TABLE WIDTH
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel .table-wrap {
+  width: 100% !important;
+
+  overflow-x: auto !important;
+
+  margin: 0 !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table {
+  width: 100% !important;
+
+  min-width: 1100px !important;
+
+  table-layout: fixed !important;
+
+  border-collapse: collapse !important;
+}
+
+
+/* =========================================================
+   10. TABLE COLUMN WIDTHS
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table th:nth-child(1),
+main .content:has(.ai-grid) > .panel table td:nth-child(1) {
+  width: 36% !important;
+  text-align: left !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table th:nth-child(2),
+main .content:has(.ai-grid) > .panel table td:nth-child(2) {
+  width: 9% !important;
+  text-align: left !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table th:nth-child(3),
+main .content:has(.ai-grid) > .panel table td:nth-child(3) {
+  width: 10% !important;
+  text-align: left !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table th:nth-child(4),
+main .content:has(.ai-grid) > .panel table td:nth-child(4) {
+  width: 12% !important;
+  text-align: left !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table th:nth-child(5),
+main .content:has(.ai-grid) > .panel table td:nth-child(5) {
+  width: 15% !important;
+  text-align: left !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table th:nth-child(6),
+main .content:has(.ai-grid) > .panel table td:nth-child(6) {
+  width: 18% !important;
+  text-align: left !important;
+}
+
+
+/* =========================================================
+   11. TABLE HEADER — SAME SCALE AS STOCK ORDERS
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table thead th {
+  height: 44px !important;
+
+  padding: 0 20px !important;
+
+  font-size: 12px !important;
+  line-height: 15px !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: .5px !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   12. TABLE ROW HEIGHT
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table tbody tr {
+  height: 68px !important;
+}
+
+
+main .content:has(.ai-grid) > .panel table tbody td {
+  height: 68px !important;
+
+  padding: 14px 20px !important;
+
+  font-size: 15px !important;
+  line-height: 19px !important;
+
+  font-weight: 500 !important;
+
+  vertical-align: middle !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   13. PRODUCT NAME
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table tbody td b {
+  font-size: 15px !important;
+  line-height: 19px !important;
+
+  font-weight: 750 !important;
+}
+
+
+/* =========================================================
+   14. NUMBERS — IMPORTANT
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table tbody td:nth-child(2),
+main .content:has(.ai-grid) > .panel table tbody td:nth-child(3),
+main .content:has(.ai-grid) > .panel table tbody td:nth-child(4) {
+  font-size: 16px !important;
+
+  font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   15. RECOMMENDED ORDER
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table tbody td:nth-child(6) {
+  font-size: 15px !important;
+
+  font-weight: 750 !important;
+}
+
+
+/* =========================================================
+   16. RISK TAG
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel table .tag {
+  min-height: 32px !important;
+
+  padding: 7px 12px !important;
+
+  border-radius: 8px !important;
+
+  font-size: 12px !important;
+  line-height: 15px !important;
+
+  font-weight: 800 !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   17. DECISION FLOW
+   ========================================================= */
+
+main .content:has(.ai-grid) .flow {
+  min-height: 90px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 18px !important;
+
+  padding: 10px 20px !important;
+}
+
+
+main .content:has(.ai-grid) .flow span {
+  min-height: 42px !important;
+
+  padding: 0 18px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid #26364a !important;
+  border-radius: 9px !important;
+
+  background: #0e1724 !important;
+
+  color: #dbe5ef !important;
+
+  font-size: 11px !important;
+  font-weight: 700 !important;
+
+  white-space: nowrap !important;
+}
+
+
+main .content:has(.ai-grid) .flow svg {
+  width: 17px !important;
+  height: 17px !important;
+
+  opacity: .6 !important;
+}
+
+
+/* =========================================================
+   18. WATCH LIST
+   ========================================================= */
+
+main .content:has(.ai-grid) > .panel .recommend {
+  min-height: 64px !important;
+
+  padding: 12px 22px !important;
+}
+
+
+/* =========================================================
+   19. DESKTOP 1400+
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+  main .content:has(.ai-grid) {
+    width: 100% !important;
+    max-width: none !important;
+
+    padding-left: 30px !important;
+    padding-right: 28px !important;
+  }
+
+  main .content:has(.ai-grid) .ai-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr) !important;
+  }
+
+  main .content:has(.ai-grid) > .panel table {
+    min-width: 1100px !important;
+  }
+}
+
+
+/* =========================================================
+   20. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  main .content:has(.ai-grid) {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  main .content:has(.ai-grid) .ai-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  main .content:has(.ai-grid) .ai-hero,
+  main .content:has(.ai-grid) .ai-grid > .panel {
+    height: auto !important;
+    min-height: 184px !important;
+  }
+
+  main .content:has(.ai-grid) > .panel table {
+    min-width: 1000px !important;
+  }
+}
+
+
+/* =========================================================
+   21. MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  main .content:has(.ai-grid) {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  main .content:has(.ai-grid) .ai-hero {
+    padding: 22px !important;
+  }
+
+  main .content:has(.ai-grid) .ai-hero h2 {
+    font-size: 21px !important;
+    line-height: 26px !important;
+  }
+
+  main .content:has(.ai-grid) .flow {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  main .content:has(.ai-grid) .flow svg {
+    transform: rotate(90deg) !important;
+  }
+}
+/* =====================================================
+   SETTINGS PAGE
+   FULL-WIDTH LAYOUT — MATCH RETAIL GUARDIAN
+   ===================================================== */
+
+.settings-page {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Break Settings out of the narrow centered content width */
+.content:has(.settings-page) {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Settings internal layout */
+.settings-page .two {
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr) !important;
+  gap: 14px !important;
+}
+
+.settings-page .panel {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}
+
+/* Full-width lower sections */
+.settings-page > div:not(.two) {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Keep form fields properly distributed */
+.settings-page .form-grid {
+  width: 100% !important;
+}
+/* =====================================================
+   SETTINGS PAGE — TYPOGRAPHY & SCALE
+   Slightly larger, matching Retail Guardian
+   ===================================================== */
+
+.settings-page {
+  font-size: 14px;
+}
+
+/* Page heading */
+.settings-page h1 {
+  font-size: 30px !important;
+  line-height: 1.15 !important;
+}
+
+.settings-page .eyebrow {
+  font-size: 11px !important;
+  letter-spacing: 1.4px !important;
+}
+
+.settings-page .head-sub,
+.settings-page .sub {
+  font-size: 13px !important;
+}
+
+/* Panel titles */
+.settings-page .panel h3,
+.settings-page .panel h2 {
+  font-size: 18px !important;
+  line-height: 1.25 !important;
+}
+
+/* Panel subtitles */
+.settings-page .panel small {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* Form labels */
+.settings-page label {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+/* Inputs and selects */
+.settings-page input,
+.settings-page select {
+  font-size: 13px !important;
+  min-height: 40px;
+}
+
+/* Store alert information box */
+.settings-page label + div small,
+.settings-page .panel > div small {
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+}
+
+/* Setting row title */
+.settings-page .setting-row,
+.settings-page .setting-row strong {
+  font-size: 13px !important;
+}
+
+/* Setting row description */
+.settings-page .setting-row small {
+  font-size: 11px !important;
+}
+
+/* Status tags */
+.settings-page .tag {
+  font-size: 11px !important;
+  padding: 5px 9px !important;
+}
+
+/* Buttons */
+.settings-page button.primary {
+  font-size: 12px !important;
+  min-height: 40px;
+  padding: 0 18px !important;
+}
+
+/* Trolley rows */
+.settings-page .setting {
+  font-size: 13px !important;
+}
+
+/* Checkbox */
+.settings-page input[type="checkbox"] {
+  min-height: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Give panels slightly more breathing room */
+.settings-page .panel {
+  padding: 20px !important;
+}
+
+/* Form spacing */
+.settings-page .form-grid {
+  gap: 14px !important;
+}
+
+/* =====================================================
+   SETTINGS — FINAL TYPOGRAPHY & SPACING POLISH
+   Width/layout intentionally unchanged
+   ===================================================== */
+
+/* Page heading */
+.settings-page h1 {
+  font-size: 32px !important;
+  line-height: 1.15 !important;
+  margin-bottom: 6px !important;
+}
+
+.settings-page .eyebrow {
+  font-size: 11px !important;
+  letter-spacing: 1.5px !important;
+}
+
+/* Page subtitle */
+.settings-page > .head-sub,
+.settings-page .sub {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =====================================================
+   PANELS
+   ===================================================== */
+
+.settings-page .panel {
+  padding: 22px !important;
+}
+
+.settings-page .panel h2,
+.settings-page .panel h3 {
+  font-size: 19px !important;
+  line-height: 1.25 !important;
+  margin-bottom: 4px !important;
+}
+
+
+/* Panel descriptions */
+.settings-page .panel > .sub,
+.settings-page .panel small {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+
+/* =====================================================
+   FORM FIELDS
+   ===================================================== */
+
+.settings-page .form-grid {
+  gap: 16px !important;
+}
+
+.settings-page label {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.settings-page input:not([type="checkbox"]),
+.settings-page select {
+  min-height: 42px !important;
+  font-size: 13px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+
+/* =====================================================
+   STORE ALERT INFORMATION BOX
+   ===================================================== */
+
+.settings-page .panel small {
+  font-size: 12px !important;
+}
+
+
+/* =====================================================
+   TROLLEY OPERATIONS
+   ===================================================== */
+
+.settings-page .setting-row {
+  min-height: 58px !important;
+}
+
+.settings-page .setting-row strong,
+.settings-page .setting strong {
+  font-size: 13px !important;
+}
+
+.settings-page .setting-row small,
+.settings-page .setting small {
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
+
+
+/* =====================================================
+   STATUS TAGS
+   ===================================================== */
+
+.settings-page .tag {
+  font-size: 11px !important;
+  line-height: 1 !important;
+  padding: 6px 10px !important;
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   SAVE BUTTONS
+   ===================================================== */
+
+.settings-page button.primary {
+  min-height: 42px !important;
+  padding: 0 19px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+
+/* =====================================================
+   CHECKBOXES
+   ===================================================== */
+
+.settings-page input[type="checkbox"] {
+  width: 19px !important;
+  height: 19px !important;
+  min-height: 19px !important;
+}
+
+
+/* =====================================================
+   SYSTEM ARCHITECTURE
+   ===================================================== */
+
+.settings-page > div:not(.two) .setting-row {
+  min-height: 60px !important;
+}
+
+
+/* =====================================================
+   GENERAL READABILITY
+   ===================================================== */
+
+.settings-page {
+  letter-spacing: 0 !important;
+}
+
+.settings-page input,
+.settings-page select,
+.settings-page button {
+  font-family: inherit !important;
+}
+/* =========================================================
+   NOTIFICATIONS — FORCE INVENTORY PAGE DIMENSIONS
+   ========================================================= */
+
+.content:has(.notifications-page) {
+  width: calc(100% - 20px) !important;
+  max-width: none !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.content:has(.notifications-page) .notifications-page {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Main notification panel */
+.content:has(.notifications-page) .notifications-page .panel {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Remove any inner width limitation */
+.content:has(.notifications-page) .notifications-page > * {
+  max-width: none !important;
+}
+
+/* Keep notification rows full width */
+.content:has(.notifications-page) .notifications-page .panel > * {
+  max-width: none !important;
+}
+
+/* =========================================================
+   RETAIL GUARDIAN — FINAL BALANCED ROW
+   ========================================================= */
+
+.guardian-event {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(280px, 0.75fr)
+    170px !important;
+
+  align-items: center !important;
+
+  column-gap: 32px !important;
+
+  width: 100% !important;
+
+  min-height: 68px !important;
+
+  padding: 10px 0 !important;
+
+  border-bottom: 1px solid rgba(148,163,184,.10) !important;
+}
+
+
+/* LEFT */
+
+.guardian-event-info {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.guardian-event-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.guardian-event-title b {
+  font-size: 13px !important;
+  white-space: nowrap;
+}
+
+.guardian-event-detail {
+  display: block !important;
+
+  margin-top: 4px !important;
+
+  font-size: 10px !important;
+
+  color: #8fa3bd !important;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   CENTER — MISMATCH REASON
+   ========================================================= */
+
+.guardian-event-reason {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  justify-content: center !important;
+
+  align-items: flex-start !important;
+
+  gap: 3px !important;
+
+  min-width: 0 !important;
+
+  width: 100% !important;
+}
+
+.guardian-event-reason > span {
+  font-size: 9px !important;
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+
+  color: #71849d !important;
+
+  font-weight: 700;
+}
+
+.guardian-event-reason > b {
+  font-size: 11px !important;
+
+  color: #d9e4f2 !important;
+
+  font-weight: 650;
+}
+
+.guardian-event-reason > small {
+  font-size: 10px !important;
+
+  color: #8295ad !important;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RIGHT — TIME + RESOLVE
+   ========================================================= */
+
+.guardian-event-action {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: flex-end !important;
+
+  gap: 14px !important;
+
+  width: 100% !important;
+}
+
+.guardian-event-time {
+  font-size: 10px !important;
+
+  color: #91a4bd !important;
+
+  white-space: nowrap;
+}
+
+.guardian-event-action .primary {
+  width: 76px !important;
+
+  min-width: 76px !important;
+
+  height: 30px !important;
+
+  padding: 0 !important;
+
+  font-size: 10px !important;
+}
+
+.guardian-event-placeholder {
+  width: 76px !important;
+
+  min-width: 76px !important;
+
+  height: 30px;
+}

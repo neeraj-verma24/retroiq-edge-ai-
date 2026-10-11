@@ -1,0 +1,40 @@
+.env
+.env.*
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+__pycache__/
+node_modules/
+dist/
+*.pyc
+smart_retail_before_demo_seed.db
+.vercel/
+desktop.ini
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Generated folders
+node_modules/
+dist/
+.vercel/
+__pycache__/
+.venv/
+venv/
+
+# Local databases and logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Private credentials and keys
+credentials.json
+secrets.json
+service-account*.json
+*.pem
+*.key
